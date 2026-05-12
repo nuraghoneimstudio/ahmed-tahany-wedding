@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="ar" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ahmed & Tahany — Wedding HQ</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#f5f4f0;--card:#fff;--border:#e8e8e5;--ink:#1a1a1a;--muted:#888;
+  --green:#1D9E75;--green-bg:#dcf5ec;--green-text:#166f50;
+  --amber:#c0811a;--amber-bg:#fff3dc;--amber-text:#995f0a;
+  --red:#c0392b;--red-bg:#fff0f0;--blue:#1a6abf;--blue-bg:#edf4ff;
+  --gold:#b8962e;--gold-bg:#fdf6e3;
+}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--ink);min-height:100vh}
+.nav{background:#1a1a1a;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 20px;height:52px;position:sticky;top:0;z-index:200}
+.nav-brand{font-size:14px;font-weight:500}
+.nav-brand span{color:#c8a96e}
+.nav-tabs{display:flex;gap:2px}
+.nav-tab{font-size:13px;padding:6px 14px;border-radius:6px;cursor:pointer;color:#aaa;background:transparent;border:none;font-family:inherit;transition:all .15s}
+.nav-tab:hover{color:#fff}
+.nav-tab.active{background:#333;color:#fff}
+.concept-badge{font-size:11px;background:#b8962e22;color:#c8a96e;border:1px solid #b8962e44;border-radius:999px;padding:3px 12px}
+.page{display:none;padding:20px 18px 60px;max-width:1000px;margin:0 auto}
+.page.active{display:block}
+
+/* KPI grid */
+.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:18px}
+.kpi{background:var(--card);border:.5px solid var(--border);border-radius:10px;padding:14px 16px}
+.kpi-label{font-size:11px;color:var(--muted);margin-bottom:5px}
+.kpi-val{font-size:24px;font-weight:700}
+.kpi-val.g{color:var(--green)}.kpi-val.a{color:var(--amber)}.kpi-val.gold{color:var(--gold)}.kpi-val.r{color:var(--red)}
+
+/* concept card */
+.concept-card{background:linear-gradient(135deg,#1a1a1a,#2d2d2d);border-radius:12px;padding:18px 22px;color:#fff;margin-bottom:14px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.concept-card h3{font-size:14px;font-weight:500;margin-bottom:4px}
+.concept-card p{font-size:12px;color:#bbb;line-height:1.6}
+.concept-check{background:#b8962e22;border:1px solid #b8962e55;color:#c8a96e;font-size:12px;padding:4px 14px;border-radius:999px;white-space:nowrap;flex-shrink:0}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+.card{background:var(--card);border:.5px solid var(--border);border-radius:12px;padding:16px 18px}
+.card h4{font-size:13px;font-weight:600;margin-bottom:12px}
+.sec-title{font-size:12px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin:18px 0 10px}
+.status-row{display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-bottom:.5px solid var(--border);font-size:13px}
+.status-row:last-child{border-bottom:none}
+.status-row .sr-text{flex:1}
+.sr-sub{font-size:11px;color:var(--muted);margin-top:2px}
+.pill{font-size:11px;padding:3px 10px;border-radius:999px;font-weight:500;white-space:nowrap}
+.pill.done{background:var(--green-bg);color:var(--green-text)}
+.pill.pending{background:var(--amber-bg);color:var(--amber-text)}
+.pill.warn{background:var(--red-bg);color:var(--red)}
+.dec-item{display:flex;align-items:flex-start;gap:9px;padding:8px 0;border-bottom:.5px solid var(--border)}
+.dec-item:last-child{border-bottom:none}
+.dec-dot{width:7px;height:7px;border-radius:50%;background:var(--amber);flex-shrink:0;margin-top:5px}
+.dec-dot.done{background:var(--green)}
+.dec-text{font-size:13px;flex:1;line-height:1.4}
+.dec-tag{font-size:11px;padding:2px 8px;border-radius:999px;background:var(--amber-bg);color:var(--amber-text);white-space:nowrap}
+.dec-tag.done{background:var(--green-bg);color:var(--green-text)}
+.budget-row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:.5px solid var(--border);font-size:13px}
+.budget-row:last-child{border-bottom:none;font-weight:600;padding-top:10px}
+
+/* GUESTS */
+.alert-box{border-radius:9px;padding:12px 16px;margin-bottom:12px;font-size:13px;line-height:1.6}
+.alert-warn{background:#fff8ec;border:.5px solid #e8d89a;color:#7a5f0a}
+.alert-info{background:var(--blue-bg);border:.5px solid #c0d8f5;color:#164a80}
+.g-controls{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap;align-items:center}
+.g-search{flex:1;min-width:180px;font-size:13px;padding:7px 12px;border:1px solid var(--border);border-radius:8px;background:var(--card);font-family:inherit;outline:none}
+.g-search:focus{border-color:#999}
+.g-filter{font-size:12px;padding:6px 14px;border-radius:999px;border:1px solid var(--border);background:var(--card);color:#555;cursor:pointer;font-family:inherit;transition:all .15s}
+.g-filter:hover{border-color:#999}
+.g-filter.active{background:#1a1a1a;color:#fff;border-color:#1a1a1a}
+.guest-table{width:100%;border-collapse:collapse;background:var(--card);border-radius:12px;overflow:hidden;border:.5px solid var(--border)}
+.guest-table th{font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;padding:9px 14px;text-align:left;border-bottom:.5px solid var(--border);background:#fafafa;white-space:nowrap}
+.guest-table td{font-size:13px;padding:9px 14px;border-bottom:.5px solid #f0f0f0;vertical-align:middle}
+.guest-table tr:last-child td{border-bottom:none}
+.guest-table tbody tr:hover td{background:#fafafa}
+.guest-table .flag{font-size:11px;padding:2px 8px;border-radius:999px;margin-left:6px}
+.flag-test{background:#f0f0f0;color:#888}
+.flag-dup{background:var(--amber-bg);color:var(--amber-text)}
+.num-badge{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:6px;font-weight:700;font-size:13px;background:#f0f0f0}
+.num-badge.big{background:var(--green-bg);color:var(--green-text)}
+.status-dot{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:6px}
+.dot-att{background:var(--green)}
+.dot-dec{background:var(--red)}
+.g-count-row{font-size:12px;color:var(--muted);margin-bottom:8px}
+
+/* CHECKLIST */
+.cl-filter{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap}
+.cl-btn{font-size:12px;padding:6px 14px;border-radius:999px;border:1px solid var(--border);background:var(--card);color:#555;cursor:pointer;font-family:inherit;transition:all .15s}
+.cl-btn:hover{border-color:#999}
+.cl-btn.active{background:#1a1a1a;color:#fff;border-color:#1a1a1a}
+.cl-section{background:var(--card);border:.5px solid var(--border);border-radius:12px;margin-bottom:10px;overflow:hidden}
+.cl-head{display:flex;align-items:center;gap:10px;padding:13px 16px;cursor:pointer;transition:background .1s}
+.cl-head:hover{background:#fafafa}
+.cl-icon{font-size:16px;width:20px;text-align:center}
+.cl-title{font-size:14px;font-weight:500;flex:1}
+.cl-badge{font-size:11px;padding:3px 10px;border-radius:999px;background:#f0f0f0;color:#666}
+.cl-badge.done{background:var(--green-bg);color:var(--green-text)}
+.cl-badge.partial{background:var(--amber-bg);color:var(--amber-text)}
+.chevron{color:#bbb;transition:transform .2s;font-size:15px}
+.chevron.open{transform:rotate(180deg)}
+.prog-track{height:3px;background:#f0f0f0}
+.prog-fill{height:100%;background:var(--green);transition:width .3s}
+.cl-item{display:flex;align-items:flex-start;gap:11px;padding:10px 16px;border-bottom:.5px solid #f5f5f5}
+.cl-item:last-child{border-bottom:none}
+.cl-item label{display:flex;align-items:flex-start;gap:10px;cursor:pointer;flex:1}
+.cl-item input[type=checkbox]{margin-top:2px;width:15px;height:15px;flex-shrink:0;cursor:pointer;accent-color:var(--green)}
+.cl-item-content{flex:1}
+.cl-item-name{font-size:13px;color:var(--ink);line-height:1.45}
+.cl-item-name.checked{text-decoration:line-through;color:#ccc}
+.cl-item-sub{font-size:12px;color:var(--muted);margin-top:3px;line-height:1.5}
+.cl-tags{margin-top:4px;display:flex;gap:4px}
+.tag-d{font-size:11px;padding:2px 8px;border-radius:999px;background:var(--red-bg);color:var(--red);font-weight:500}
+.tag-o{font-size:11px;padding:2px 8px;border-radius:999px;background:var(--blue-bg);color:var(--blue);font-weight:500}
+.cl-price{font-size:12px;font-weight:500;color:var(--muted);white-space:nowrap;padding-left:10px;flex-shrink:0;margin-top:2px}
+
+@media(max-width:640px){
+  .kpi-grid,.two-col{grid-template-columns:repeat(2,1fr)}
+  .concept-card{flex-direction:column;align-items:flex-start}
+  .nav-brand span{display:none}
+  th:nth-child(4),td:nth-child(4),th:nth-child(6),td:nth-child(6){display:none}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-brand">Ahmed & Tahany <span>· July 4, 2026</span></div>
+  <div class="nav-tabs">
+    <button class="nav-tab active" onclick="goTo('dashboard',this)">Dashboard</button>
+    <button class="nav-tab" onclick="goTo('guests',this)">Guests</button>
+    <button class="nav-tab" onclick="goTo('checklist',this)">Checklist</button>
+  </div>
+  <div class="concept-badge">✓ Concept 1 — Dreamy Heaven</div>
+</nav>
+
+<!-- ══ DASHBOARD ══ -->
+<div class="page active" id="page-dashboard">
+  <div class="kpi-grid">
+    <div class="kpi"><div class="kpi-label">Days to Wedding</div><div class="kpi-val gold" id="countdown">—</div></div>
+    <div class="kpi"><div class="kpi-label">Headcount confirmed</div><div class="kpi-val g">104</div></div>
+    <div class="kpi"><div class="kpi-label">Checklist done</div><div class="kpi-val" id="dash-done">0%</div></div>
+    <div class="kpi"><div class="kpi-label">Decisions pending</div><div class="kpi-val a" id="dash-dec">—</div></div>
+  </div>
+
+  <div class="concept-card">
+    <div>
+      <h3>Concept 1 — Dreamy Heaven ✓ Selected</h3>
+      <p>Ethereal clouds · Moonlight glow · Blush florals · Ivory columns · Sphere lighting<br>Warm Beige / Dusty Rose / Champagne Gold · Four Seasons Nile Plaza · July 4, 2026</p>
+    </div>
+    <div class="concept-check">Confirmed</div>
+  </div>
+
+  <div class="two-col">
+    <div class="card">
+      <h4>🔴 Open decisions</h4>
+      <div id="decisions-list"></div>
+    </div>
+    <div class="card">
+      <h4>📊 RSVP snapshot</h4>
+      <div class="status-row"><div class="sr-text">RSVPs received</div><strong>50</strong></div>
+      <div class="status-row"><div class="sr-text">Confirmed attending (entries)</div><strong style="color:var(--green)">46</strong></div>
+      <div class="status-row"><div class="sr-text">Total headcount</div><strong style="color:var(--green)">104</strong></div>
+      <div class="status-row"><div class="sr-text">Declining</div><strong style="color:var(--red)">3</strong></div>
+      <div class="status-row"><div class="sr-text">Venue capacity remaining</div><strong style="color:var(--amber)">296</strong></div>
+      <div class="status-row"><div class="sr-text"><div>⚠️ Needs review</div><div class="sr-sub">Test entry · Possible duplicates (Sally, Mohamed Sobhy)</div></div><span class="pill warn">2 flags</span></div>
+    </div>
+  </div>
+
+  <div class="two-col">
+    <div class="card">
+      <h4>📅 Upcoming milestones</h4>
+      <div class="status-row"><div class="sr-text">Site visit with decorator</div><span class="pill pending">Schedule</span></div>
+      <div class="status-row"><div class="sr-text">Sign all vendor contracts</div><span class="pill pending">In progress</span></div>
+      <div class="status-row"><div class="sr-text"><div>Digital invitations</div><div class="sr-sub">Guest list QR generation pending</div></div><span class="pill pending">Pending</span></div>
+      <div class="status-row"><div class="sr-text">Wedding concept</div><span class="pill done">Done ✓</span></div>
+    </div>
+    <div class="card">
+      <h4>💰 Budget snapshot — Concept 1</h4>
+      <div class="budget-row"><span>Decoration (incl. VAT)</span><span>EGP 6,002,898</span></div>
+      <div class="budget-row"><span>Management fees (20%)</span><span>EGP 1,200,580</span></div>
+      <div class="budget-row"><span>Photography</span><span>EGP 132,000</span></div>
+      <div class="budget-row"><span>Logistics (CMC)</span><span>EGP 120,000</span></div>
+      <div class="budget-row"><span>Transport + invitation</span><span>EGP 108,000</span></div>
+      <div class="budget-row"><span>Total estimate</span><span style="color:var(--gold)">EGP ~7.6M+</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ GUESTS ══ -->
+<div class="page" id="page-guests">
+
+  <div class="kpi-grid" style="grid-template-columns:repeat(5,1fr)">
+    <div class="kpi"><div class="kpi-label">RSVPs received</div><div class="kpi-val">50</div></div>
+    <div class="kpi"><div class="kpi-label">Attending entries</div><div class="kpi-val g">46</div></div>
+    <div class="kpi"><div class="kpi-label">Total headcount</div><div class="kpi-val g">104</div></div>
+    <div class="kpi"><div class="kpi-label">Declining</div><div class="kpi-val r">3</div></div>
+    <div class="kpi"><div class="kpi-label">Capacity left</div><div class="kpi-val a">296</div></div>
+  </div>
+
+
+  <div class="g-controls">
+    <input class="g-search" type="text" placeholder="Search by name…" oninput="filterGuests()" id="g-search">
+    <button class="g-filter active" onclick="setGFilter('all',this)">All (50)</button>
+    <button class="g-filter" onclick="setGFilter('attending',this)">Attending (46)</button>
+    <button class="g-filter" onclick="setGFilter('declining',this)">Declining (3)</button>
+
+  </div>
+
+  <div class="g-count-row" id="g-count-row">Showing 50 guests</div>
+
+  <div style="overflow-x:auto">
+  <table class="guest-table" id="guest-table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Status</th>
+        <th>Headcount</th>
+        <th>Responded</th>
+        <th>Guest ID</th>
+      </tr>
+    </thead>
+    <tbody id="guest-tbody"></tbody>
+  </table>
+  </div>
+</div>
+
+<!-- ══ CHECKLIST ══ -->
+<div class="page" id="page-checklist">
+  <div class="cl-filter">
+    <button class="cl-btn active" onclick="setFilter('all',this)">All</button>
+    <button class="cl-btn" onclick="setFilter('pending',this)">Pending</button>
+    <button class="cl-btn" onclick="setFilter('done',this)">Completed</button>
+    <button class="cl-btn" onclick="setFilter('decision',this)">Decision needed</button>
+    <button class="cl-btn" onclick="setFilter('optional',this)">Optional</button>
+  </div>
+  <div id="cl-sections"></div>
+</div>
+
+<script>
+// ── COUNTDOWN ──
+(function(){
+  const d = Math.ceil((new Date('2026-07-04') - new Date()) / 864e5);
+  document.getElementById('countdown').textContent = d > 0 ? d+'d' : 'Today!';
+})();
+
+// ── GUEST DATA ──
+const GUESTS = [
+  {id:'GST-IDJ767',name:'Ali Hussein',attendance:'Attending',count:4,ts:'2026-05-06',flags:[]},
+  {id:'GST-I84EEV',name:'Hamis',attendance:'Attending',count:2,ts:'2026-05-06',flags:[]},
+  {id:'GST-E3Z3LA',name:'Farida Wael',attendance:'Attending',count:2,ts:'2026-05-06',flags:[]},
+
+  {id:'GST-6P8CON',name:'Hesham Kayed',attendance:'Attending',count:2,ts:'2026-05-06',flags:[]},
+  {id:'GST-1RQ8VF',name:'Shahd Shabana',attendance:'Attending',count:3,ts:'2026-05-06',flags:[]},
+  {id:'GST-G6EQUX',name:'Sally Abo El Seoud',attendance:'Attending',count:3,ts:'2026-05-06',flags:[]},
+  {id:'GST-WS4OJV',name:'Nora ElTayer',attendance:'Attending',count:3,ts:'2026-05-06',flags:[]},
+  {id:'GST-106L66',name:'Amr Amir',attendance:'Attending',count:6,ts:'2026-05-06',flags:[]},
+  {id:'GST-UBU0GY',name:'Jana Arafa',attendance:'Attending',count:5,ts:'2026-05-07',flags:[]},
+  {id:'GST-Z9JSPH',name:'Karim El Kabbani',attendance:'Attending',count:1,ts:'2026-05-07',flags:[]},
+  {id:'GST-X3LR2A',name:'Walid Abdulaziz',attendance:'Attending',count:1,ts:'2026-05-07',flags:[]},
+  {id:'GST-AQA1Y3',name:'Ezzeldeen Magdy',attendance:'Attending',count:2,ts:'2026-05-07',flags:[]},
+  {id:'GST-PSB8DT',name:'Heba Nabil',attendance:'Attending',count:1,ts:'2026-05-07',flags:[]},
+  {id:'GST-RUO3S9',name:'Belal El Toukhi',attendance:'Attending',count:1,ts:'2026-05-07',flags:[]},
+  {id:'GST-A4MEU8',name:'Kareem Alansari',attendance:'Attending',count:1,ts:'2026-05-07',flags:[]},
+  {id:'GST-Q84DU5',name:'Sarah M. Hany Osman',attendance:'Attending',count:1,ts:'2026-05-07',flags:[]},
+  {id:'GST-PXI4VJ',name:'Nour Yehia',attendance:'Attending',count:2,ts:'2026-05-07',flags:[]},
+  {id:'GST-S8TTVL',name:'Eatimad Shoreibah',attendance:'Attending',count:1,ts:'2026-05-07',flags:[]},
+  {id:'GST-POSJHV',name:'Salah El Deen Sabry',attendance:'Attending',count:1,ts:'2026-05-07',flags:[]},
+  {id:'GST-3BG5EY',name:'Youssef Elgendy',attendance:'Attending',count:1,ts:'2026-05-07',flags:[]},
+  {id:'GST-RUHEW2',name:'Ashraqat Reda',attendance:'Attending',count:1,ts:'2026-05-07',flags:[]},
+  {id:'GST-6AF8EI',name:'Nour Anwar Shaban',attendance:'Attending',count:1,ts:'2026-05-07',flags:[]},
+  {id:'GST-ID4C1A',name:'Hala Elassal',attendance:'Attending',count:1,ts:'2026-05-08',flags:[]},
+  {id:'GST-L9H179',name:'Sally Kafahir',attendance:'Attending',count:1,ts:'2026-05-08',flags:[]},
+  {id:'GST-KJBWYP',name:'Julia Houhou',attendance:'Attending',count:1,ts:'2026-05-08',flags:[]},
+  {id:'GST-XZ5UIO',name:'Sara Taher',attendance:'Declining',count:0,ts:'2026-05-08',flags:[]},
+  {id:'GST-3U653P',name:'Karim Bolbil',attendance:'Attending',count:1,ts:'2026-05-08',flags:[]},
+  {id:'GST-2ELJME',name:'Zeina Sherif',attendance:'Attending',count:1,ts:'2026-05-08',flags:[]},
+  {id:'GST-WRE3BW',name:'Sally Kafshir',attendance:'Attending',count:1,ts:'2026-05-08',flags:[]},
+  {id:'GST-CI6D0L',name:'Salma El Sabban',attendance:'Declining',count:0,ts:'2026-05-08',flags:[]},
+  {id:'GST-MMSKTZ',name:'عمرو المغربي',attendance:'Attending',count:5,ts:'2026-05-09',flags:[]},
+  {id:'GST-BDH8IY',name:'Mouafak Hasan',attendance:'Attending',count:4,ts:'2026-05-09',flags:[]},
+  {id:'GST-DWVEY4',name:'George Ramsis',attendance:'Attending',count:2,ts:'2026-05-09',flags:[]},
+  {id:'GST-W3RTGZ',name:'Mohamed Sobhy',attendance:'Attending',count:1,ts:'2026-05-09',flags:[]},
+  {id:'GST-KYVPBV',name:'Maha Ahmed Abbas',attendance:'Attending',count:1,ts:'2026-05-09',flags:[]},
+  {id:'GST-1611ST',name:'Amr Magdy Kamal',attendance:'Attending',count:3,ts:'2026-05-09',flags:[]},
+  {id:'GST-QGO33R',name:'Samir Osman',attendance:'Attending',count:2,ts:'2026-05-09',flags:[]},
+  {id:'GST-GMXBVR',name:'Tamer Soliman Halawa',attendance:'Attending',count:3,ts:'2026-05-09',flags:[]},
+  {id:'GST-UPABN3',name:'Yousef Tarek Mohamed',attendance:'Attending',count:2,ts:'2026-05-09',flags:[]},
+  {id:'GST-0ECQPD',name:'Mostafa Khaled',attendance:'Attending',count:2,ts:'2026-05-09',flags:[]},
+  {id:'GST-L4FJZL',name:'Amr Alaa Shoreibah',attendance:'Attending',count:6,ts:'2026-05-09',flags:[]},
+  {id:'GST-YDD97K',name:'Mohamed Sobhy',attendance:'Attending',count:8,ts:'2026-05-09',flags:[]},
+  {id:'GST-LTCN4S',name:'Joudi Mansour',attendance:'Attending',count:1,ts:'2026-05-10',flags:[]},
+  {id:'GST-WESYOE',name:'Zeinab Shoreibah',attendance:'Attending',count:1,ts:'2026-05-10',flags:[]},
+  {id:'GST-0Y6E0I',name:'Serene Ayas',attendance:'Attending',count:2,ts:'2026-05-10',flags:[]},
+  {id:'GST-XJE8UK',name:'Amr Elmgrabey',attendance:'Attending',count:2,ts:'2026-05-10',flags:[]},
+  {id:'GST-Q37TMD',name:'Mohamed Galal Shoreibah',attendance:'Attending',count:5,ts:'2026-05-10',flags:[]},
+  {id:'GST-T9CPCY',name:'Serene Taher',attendance:'Declining',count:0,ts:'2026-05-11',flags:[]},
+  {id:'GST-FC0C5I',name:'Nina Kabbany',attendance:'Attending',count:3,ts:'2026-05-12',flags:[]},
+];
+
+let gFilter = 'all';
+
+function setGFilter(f, btn){
+  gFilter = f;
+  document.querySelectorAll('.g-filter').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  renderGuestTable();
+}
+
+function filterGuests(){ renderGuestTable(); }
+
+function renderGuestTable(){
+  const q = document.getElementById('g-search').value.toLowerCase();
+  let rows = GUESTS.filter(g => {
+    if(q && !g.name.toLowerCase().includes(q) && !g.id.toLowerCase().includes(q)) return false;
+    if(gFilter==='attending') return g.attendance==='Attending' && !g.flags.includes('test');
+    if(gFilter==='declining') return g.attendance==='Declining';
+    if(gFilter==='flagged') return g.flags.length > 0;
+    return true;
+  });
+  const tbody = document.getElementById('guest-tbody');
+  document.getElementById('g-count-row').textContent = `Showing ${rows.length} of ${GUESTS.length} entries`;
+  tbody.innerHTML = rows.map((g,i) => {
+    const att = g.attendance === 'Attending';
+    const flagHtml = g.flags.map(f =>
+      f==='test' ? '<span class="flag flag-test">Test</span>' :
+      f==='dup'  ? '<span class="flag flag-dup">Check dup</span>' : ''
+    ).join('');
+    return `<tr>
+      <td style="color:var(--muted)">${i+1}</td>
+      <td><strong>${g.name}</strong>${flagHtml}</td>
+      <td><span class="status-dot ${att?'dot-att':'dot-dec'}"></span>${g.attendance}</td>
+      <td><span class="num-badge ${g.count>=4?'big':''}">${g.count||'—'}</span></td>
+      <td style="color:var(--muted)">${g.ts}</td>
+      <td style="color:var(--muted);font-size:11px">${g.id}</td>
+    </tr>`;
+  }).join('');
+}
+
+// ── CHECKLIST DATA ──
+const CL_DATA = [
+  {id:'venue',icon:'🏛️',title:'Venue & date',items:[
+    {id:'v1',name:'Confirm venue booking — Nile Plaza Hall, Four Seasons',sub:'July 4th, 2026',tags:[]},
+    {id:'v2',name:'Confirm guest capacity — 400 PAX seated',sub:'Layout option to be finalized',tags:['decision']},
+    {id:'v3',name:'Confirm layout option',sub:'Option 1: 400 PAX all low seated · Option 2: 270 low + 130 high seated',tags:['decision']},
+    {id:'v4',name:'Conduct site visit with decorator',sub:'Required before finalizing entrance design & measurements',tags:[]},
+    {id:'v5',name:'Z Team seating — 8 PAX',sub:'Dedicated table confirmed in layout',tags:[]},
+  ]},
+  {id:'concept',icon:'🎨',title:'Wedding concept',items:[
+    {id:'c1',name:'Select main concept',sub:'✓ Concept 1: Dreamy Heaven selected',tags:[],pre:true},
+    {id:'c2',name:'Confirm color palette',sub:'Warm Beige · Soft Ivory · Blush Nude · Dusty Rose · Champagne Gold',tags:[]},
+  ]},
+  {id:'zaffa',icon:'🎶',title:'Zaffa',items:[
+    {id:'z1',name:'Select before-dinner Zaffa',sub:'Elegant Oriental Zaffa + DJ Yara Tarek',price:'EGP 13,200',tags:['decision']},
+    {id:'z2',name:'Select after-dinner Zaffa',sub:'Lebanese Zaffa + DJ Ahmed Saad',price:'EGP 16,500',tags:['decision']},
+    {id:'z3',name:'Confirm Zaffa vendor booking & deposit',tags:[]},
+  ]},
+  {id:'dj',icon:'🎧',title:'DJ',items:[
+    {id:'d1',name:'Select DJ',sub:'Option A: Khaled Mamdouh · B: Khaled Hussein · C: Bassem Nagy · D: Kiro Adel',tags:['decision']},
+    {id:'d2',name:'Confirm DJ booking & contract',tags:[]},
+    {id:'d3',name:'Share music preferences & playlist with DJ',tags:[]},
+    {id:'d4',name:'Confirm DJ equipment requirements with venue',tags:[]},
+  ]},
+  {id:'entertainment',icon:'⭐',title:'Entertainment — Carolina Karam',items:[
+    {id:'e1',name:'Select Carolina Karam package',sub:'Solo · With dancers',tags:['decision']},
+    {id:'e2',name:'Book Carolina Karam — solo',price:'USD 10,000',tags:['optional']},
+    {id:'e3',name:'Book Carolina Karam — with dancers',price:'USD 12,000',tags:['optional']},
+    {id:'e4',name:'Confirm contract & performance schedule',tags:[]},
+  ]},
+  {id:'entrance',icon:'🚪',title:'Guest entrance design',items:[
+    {id:'ge1',name:'Select guest entrance option',sub:'Option 1: Draped passage + sphere lighting + violinists · Option 2: Floral walls',tags:['decision']},
+    {id:'ge2',name:'Finalize entrance dimensions after site visit',sub:'Welcome sign: fabric 3m x 1m',tags:[]},
+    {id:'ge3',name:'Confirm live violinists for entrance',tags:['optional']},
+    {id:'ge4',name:'Seating chart design & print on fabric',sub:'5 columns at different heights',tags:[]},
+  ]},
+  {id:'ceiling',icon:'🏗️',title:'Ceiling & walls',items:[
+    {id:'cl1',name:'Select ceiling style',sub:'Option 1: Soft draped ivory canopy + sphere lights · Option 2: Wave form · Option 3: Sculptural foam',tags:['decision']},
+    {id:'cl3',name:'Confirm hall side wall draping',sub:'Soft-waved beige drapery',price:'EGP 72,000',tags:[]},
+  ]},
+  {id:'bridal',icon:'💍',title:'Bridal stage',items:[
+    {id:'bs1',name:'Select bridal stage design',sub:'Option 1: Ivory columns + blush florals · Option 2: Layered platforms · Option 3: Illuminated contour layers',tags:['decision']},
+    {id:'bs2',name:'Confirm stage dimensions — 14m x 3m + catwalk',price:'EGP 32,400',tags:[]},
+    {id:'bs3',name:'Bridal entrance backdrop — 14m x 3.5m with T&A initials',price:'EGP 96,000',tags:[]},
+    {id:'bs4',name:'Printed dancefloor & catwalk banner',price:'EGP 20,400',tags:[]},
+  ]},
+  {id:'seating',icon:'🪑',title:'Seating & furniture',items:[
+    {id:'st2',name:'2 large low Polo tables (24 PAX each)',price:'EGP 19,200',tags:[]},
+    {id:'st3',name:'362 low chairs',sub:'Color to confirm: beige / gold / black',price:'EGP 108,600',tags:['decision']},
+    {id:'st4',name:'10 low rectangular tables',price:'EGP 18,000',tags:[]},
+    {id:'st5',name:'22 low oval tables (8 PAX each)',price:'EGP 39,600',tags:[]},
+    {id:'st6',name:'5 low round tables (10 PAX each)',price:'EGP 9,000',tags:[]},
+    {id:'st7',name:'6 high round tables (4 PAX each)',price:'EGP 10,800',tags:[]},
+  ]},
+  {id:'centerpieces',icon:'🌸',title:'Centerpieces & florals',items:[
+    {id:'cp1',name:'Polo table centerpieces x2',price:'EGP 43,200',tags:[]},
+    {id:'cp2',name:'Rectangular table centerpieces x32',price:'EGP 172,800',tags:[]},
+    {id:'cp3',name:'Round table centerpieces x11',price:'EGP 36,960',tags:[]},
+    {id:'cp4',name:'Mix & match additional centerpiece designs',tags:['decision']},
+  ]},
+  {id:'invitation',icon:'✉️',title:'Digital invitation',items:[
+    {id:'inv1',name:'Select invitation illustration concept',sub:'The Royal Palace — narrative view or scenic view',tags:['decision']},
+    {id:'inv2',name:'Finalize invitation content',sub:'Names · Date · Venue · Countdown · RSVP · Music',tags:[]},
+    {id:'inv3',name:'Confirm digital invitation package',price:'EGP 10,000',tags:[]},
+    {id:'inv4',name:'Provide final guest list for QR code generation',tags:[]},
+    {id:'inv5',name:'Approve & send digital invitations',tags:[]},
+  ]},
+  {id:'photography',icon:'📷',title:'Photography & video',items:[
+    {id:'ph1',name:'Book Hussein Abdelkader — full coverage',sub:'4 photographers · crane · 3 reels',price:'EGP 110,000',tags:[]},
+    {id:'ph2',name:'Confirm photographer availability',tags:[]},
+    {id:'ph3',name:'Pre-wedding photoshoot',price:'EGP 11,000–16,500',tags:['optional']},
+    {id:'ph4',name:'Photo booth — unlimited prints',price:'EGP 16,500',tags:['optional']},
+    {id:'ph5',name:'360 camera',price:'EGP 11,000',tags:['optional']},
+    {id:'ph6',name:'Confirm call sheet & shot list',tags:[]},
+  ]},
+  {id:'logistics',icon:'🚚',title:'Logistics & coordination',items:[
+    {id:'lg1',name:'Book CMC wedding logistics management',price:'EGP 100,000',tags:[]},
+    {id:'lg2',name:'Finalize vendor timeline & run-of-show',tags:[]},
+    {id:'lg3',name:'Confirm transportation for decoration setup',price:'EGP 96,000',tags:[]},
+    {id:'lg4',name:'Guest entrance & registration process',tags:[]},
+    {id:'lg5',name:'Bridal party schedule & movement plan',tags:[]},
+  ]},
+  {id:'budget',icon:'💰',title:'Contracts & payments',items:[
+    {id:'bg4',name:'Sign all vendor contracts',sub:'Zaffa · DJ · Entertainment · Decoration · Photography · Logistics',tags:[]},
+    {id:'bg5',name:'Confirm payment schedule & deposits',tags:[]},
+    {id:'bg6',name:'CMC management fees agreed (20%)',tags:[]},
+  ]},
+];
+
+let clState = {};
+CL_DATA.forEach(s => s.items.forEach(it => { clState[it.id] = it.pre||false; }));
+try{ const sv=localStorage.getItem('at_v3'); if(sv) clState={...clState,...JSON.parse(sv)}; }catch(e){}
+let clFilter = 'all';
+function saveState(){ try{localStorage.setItem('at_v3',JSON.stringify(clState));}catch(e){} }
+
+function renderChecklist(){
+  const cont = document.getElementById('cl-sections');
+  cont.innerHTML = '';
+  let td=0,ta=0,dp=0;
+  CL_DATA.forEach(sec=>{
+    const filtered = sec.items.filter(it=>{
+      if(clFilter==='all') return true;
+      if(clFilter==='pending') return !clState[it.id];
+      if(clFilter==='done') return clState[it.id];
+      if(clFilter==='decision') return it.tags.includes('decision');
+      if(clFilter==='optional') return it.tags.includes('optional');
+      return true;
+    });
+    if(!filtered.length) return;
+    const done=sec.items.filter(i=>clState[i.id]).length, tot=sec.items.length;
+    td+=done; ta+=tot;
+    const pct=Math.round(done/tot*100);
+    const bc=done===tot?'done':done>0?'partial':'';
+    const el=document.createElement('div');
+    el.className='cl-section';
+    el.innerHTML=`
+      <div class="cl-head" onclick="toggleCL('${sec.id}')">
+        <span class="cl-icon">${sec.icon}</span>
+        <span class="cl-title">${sec.title}</span>
+        <span class="cl-badge ${bc}" id="clbadge-${sec.id}">${done}/${tot}</span>
+        <span class="chevron open" id="clchev-${sec.id}">⌄</span>
+      </div>
+      <div class="prog-track"><div class="prog-fill" id="clprog-${sec.id}" style="width:${pct}%"></div></div>
+      <div id="clbody-${sec.id}">
+        ${filtered.map(it=>`
+          <div class="cl-item" id="clit-${it.id}">
+            <label>
+              <input type="checkbox" ${clState[it.id]?'checked':''} onchange="toggleItem('${it.id}','${sec.id}')">
+              <div class="cl-item-content">
+                <div class="cl-item-name ${clState[it.id]?'checked':''}">${it.name}</div>
+                ${it.sub?`<div class="cl-item-sub">${it.sub}</div>`:''}
+                ${it.tags.length?`<div class="cl-tags">${it.tags.map(t=>`<span class="${t==='decision'?'tag-d':'tag-o'}">${t==='decision'?'Decision needed':'Optional'}</span>`).join('')}</div>`:''}
+              </div>
+            </label>
+            ${it.price?`<div class="cl-price">${it.price}</div>`:''}
+          </div>`).join('')}
+      </div>`;
+    cont.appendChild(el);
+  });
+  CL_DATA.forEach(s=>s.items.forEach(i=>{if(i.tags.includes('decision')&&!clState[i.id])dp++;}));
+  document.getElementById('dash-done').textContent=Math.round(td/ta*100)+'%';
+  document.getElementById('dash-dec').textContent=dp;
+  renderDecisions();
+}
+
+function renderDecisions(){
+  const list=document.getElementById('decisions-list');
+  if(!list) return;
+  let html='';
+  CL_DATA.forEach(s=>s.items.forEach(it=>{
+    if(it.tags.includes('decision')){
+      const done=clState[it.id];
+      html+=`<div class="dec-item"><div class="dec-dot ${done?'done':''}"></div><div class="dec-text">${it.name}</div><span class="dec-tag ${done?'done':''}">${done?'Done':'Pending'}</span></div>`;
+    }
+  }));
+  list.innerHTML=html;
+}
+
+function toggleItem(id,secId){
+  clState[id]=!clState[id]; saveState();
+  document.querySelector('#clit-'+id+' .cl-item-name').classList.toggle('checked',clState[id]);
+  const sec=CL_DATA.find(s=>s.id===secId);
+  const done=sec.items.filter(i=>clState[i.id]).length, pct=Math.round(done/sec.items.length*100);
+  const fill=document.getElementById('clprog-'+secId);
+  if(fill) fill.style.width=pct+'%';
+  const badge=document.getElementById('clbadge-'+secId);
+  if(badge){const bc=done===sec.items.length?'done':done>0?'partial':''; badge.className='cl-badge '+bc; badge.textContent=done+'/'+sec.items.length;}
+  let td=0,ta=0,dp=0;
+  CL_DATA.forEach(s=>{s.items.forEach(i=>{ta++;if(clState[i.id])td++;if(i.tags.includes('decision')&&!clState[i.id])dp++;});});
+  document.getElementById('dash-done').textContent=Math.round(td/ta*100)+'%';
+  document.getElementById('dash-dec').textContent=dp;
+  renderDecisions();
+}
+
+function toggleCL(id){
+  const body=document.getElementById('clbody-'+id), chev=document.getElementById('clchev-'+id);
+  if(!body) return;
+  const open=body.style.display!=='none';
+  body.style.display=open?'none':'block';
+  chev.classList.toggle('open',!open);
+}
+
+function setFilter(f,btn){
+  clFilter=f;
+  document.querySelectorAll('.cl-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  renderChecklist();
+}
+
+function goTo(page,btn){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(b=>b.classList.remove('active'));
+  document.getElementById('page-'+page).classList.add('active');
+  btn.classList.add('active');
+}
+
+renderGuestTable();
+renderChecklist();
+</script>
+</body>
+</html>
