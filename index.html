@@ -216,12 +216,8 @@ html,body{height:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sa
       <div><div class="meeting-name">Dina — Design Team</div><div class="meeting-sub">Hall design & decor details · Four Seasons Nile Plaza</div></div>
     </div>
     <div class="meeting-slot">
-      <div class="meeting-time">3:00 PM</div>
-      <div><div class="meeting-name">Ahmed Shafie — Wedding Vendor</div><div class="meeting-sub">Entertainment & vendor details</div></div>
-    </div>
-    <div class="meeting-slot">
       <div class="meeting-time">5:00 PM</div>
-      <div><div class="meeting-name">Maha & Hossam — Clients</div><div class="meeting-sub">Final approvals · setup day confirmation (Thu night → Fri setup → Sat event)</div></div>
+      <div><div class="meeting-name">Mr Hussam Family & Hotel Management</div><div class="meeting-sub">Final approvals · vendor & entertainment details · setup day confirmation</div></div>
     </div>
   </div>
 
@@ -231,13 +227,13 @@ html,body{height:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sa
       <div class="sr"><div class="sr-text">Hall layout</div><span class="pill done">Finalized ✓</span></div>
       <div class="sr"><div class="sr-text">Invitations</div><span class="pill done">Sent ✓</span></div>
       <div class="sr"><div class="sr-text">DJ Bassem Nagy</div><span class="pill done">Booked ✓</span></div>
-      <div class="sr"><div class="sr-text"><div>Ahmed Saad — Singer</div><div class="sr-sub">50% deposit paid</div></div><span class="pill partial">Deposit paid</span></div>
+      <div class="sr"><div class="sr-text"><div>Ahmed Saad — Singer</div><div class="sr-sub">40% deposit paid</div></div><span class="pill partial">Deposit paid</span></div>
       <div class="sr"><div class="sr-text"><div>Carolina Karam — Singer</div><div class="sr-sub">50% deposit paid · solo confirmed</div></div><span class="pill partial">Deposit paid</span></div>
       <div class="sr"><div class="sr-text"><div>Cinema photography</div><div class="sr-sub">Exploring options — yet to decide</div></div><span class="pill discussion">TBD</span></div>
       <div class="sr"><div class="sr-text"><div>3D concept</div><div class="sr-sub">Arriving ~May 17</div></div><span class="pill pending">Upcoming</span></div>
       <div class="sr"><div class="sr-text"><div>Entertainment extras</div><div class="sr-sub">After final concept</div></div><span class="pill discussion">In discussion</span></div>
       <div class="sr"><div class="sr-text"><div>Preliminary client quotation</div><div class="sr-sub">Shared — not yet finalized</div></div><span class="pill discussion">In discussion</span></div>
-      <div class="sr"><div class="sr-text"><div>Setup extra day</div><div class="sr-sub">Awaiting Hossam & Maha</div></div><span class="pill pending">Awaiting</span></div>
+      <div class="sr"><div class="sr-text"><div>Setup extra day</div><div class="sr-sub">Awaiting Mr Hussam Family & Hotel Management meeting</div></div><span class="pill pending">Awaiting</span></div>
       <div class="sr"><div class="sr-text">Logistics team hire</div><span class="pill warn">Urgent</span></div>
       <div class="sr"><div class="sr-text"><div>Production house visit</div><div class="sr-sub">After 3D concept</div></div><span class="pill pending">After May 17</span></div>
     </div>
@@ -256,7 +252,7 @@ html,body{height:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sa
 <!-- ══ BOOKINGS ══ -->
 <div class="page" id="page-bookings">
   <div class="kpi-grid">
-    <div class="kpi"><div class="kpi-label">Total vendors</div><div class="kpi-val">12</div></div>
+    <div class="kpi"><div class="kpi-label">Total vendors</div><div class="kpi-val" id="b-total">0</div></div>
     <div class="kpi"><div class="kpi-label">Fully booked</div><div class="kpi-val g" id="b-booked">0</div></div>
     <div class="kpi"><div class="kpi-label">Deposit paid</div><div class="kpi-val a" id="b-partial">0</div></div>
     <div class="kpi"><div class="kpi-label">Pending / TBD</div><div class="kpi-val r" id="b-tbd">0</div></div>
@@ -316,17 +312,17 @@ html,body{height:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sa
 // ── BOOKINGS ──
 const BOOKINGS=[
   {vendor:'Carolina Karam',cat:'Entertainment',status:'deposit',paid:'50%',remaining:'50% before event',notes:'Solo performance · confirmed'},
-  {vendor:'Ahmed Saad',cat:'Singer',status:'deposit',paid:'50%',remaining:'50% before event',notes:'Dedicated live performance during the wedding'},
-  {vendor:'DJ Bassem Nagy',cat:'DJ',status:'deposit',paid:'30%',remaining:'70% after event',notes:'Booked ✓'},
+  {vendor:'Ahmed Saad',cat:'Singer',status:'deposit',paid:'40%',remaining:'60% before event',notes:'Dedicated live performance during the wedding'},
+  {vendor:'DJ Bassem Nagy',cat:'DJ',status:'deposit',paid:'30%',remaining:'70% before event',notes:'Booked ✓'},
   {vendor:'Zaffa Oriental',cat:'Zaffa',status:'tbd',paid:'—',remaining:'—',notes:'Pending booking'},
   {vendor:'Zaffa Lebanese',cat:'Zaffa',status:'tbd',paid:'—',remaining:'—',notes:'Pending booking'},
   {vendor:'Entrance entertainment',cat:'Entertainment',status:'tbd',paid:'—',remaining:'—',notes:'Violins · harp · entertainment — pending'},
   {vendor:'Dining entertainment',cat:'Entertainment',status:'tbd',paid:'—',remaining:'—',notes:'During dinner — pending'},
-  {vendor:'Hussein Abdelkader',cat:'Photography',status:'deposit',paid:'50%',remaining:'50% before event',notes:'Payment schedule to finalize'},
+  {vendor:'Hussein Abdelkader',cat:'Photography',status:'tbd',paid:'—',remaining:'—',notes:'Payment schedule & delivery dates to be agreed'},
   {vendor:'Cinema photographer',cat:'Cinema',status:'tbd',paid:'—',remaining:'—',notes:'Exploring options — yet to decide'},
   {vendor:'CMC Logistics',cat:'Logistics',status:'tbd',paid:'—',remaining:'—',notes:'Team to hire urgently'},
   {vendor:'Dina — Design Team',cat:'Decoration',status:'tbd',paid:'—',remaining:'—',notes:'Post 3D concept & samples visit'},
-  {vendor:'Ahmed Shafie',cat:'Hotel vendor',status:'tbd',paid:'—',remaining:'—',notes:'Entertainment lineup — meeting May 14'},
+
 ];
 const SL={booked:'Booked ✓',deposit:'Deposit paid',tbd:'Pending / TBD'};
 const SC={booked:'done',deposit:'partial',tbd:'warn'};
@@ -336,6 +332,7 @@ function renderBookings(){
     if(b.status==='booked')bo++;else if(b.status==='deposit')pa++;else tb++;
     return`<tr><td><strong>${b.vendor}</strong></td><td style="color:var(--muted)">${b.cat}</td><td><span class="pill ${SC[b.status]}">${SL[b.status]}</span></td><td class="${b.paid!=='—'&&b.paid!=='TBD'?'money-paid':'money-tbd'}">${b.paid}</td><td class="${b.remaining!=='—'&&b.remaining!=='TBD'?'money-rem':'money-tbd'}">${b.remaining}</td><td style="font-size:12px;color:var(--muted)">${b.notes}</td></tr>`;
   }).join('');
+  document.getElementById('b-total').textContent=BOOKINGS.length;
   document.getElementById('b-booked').textContent=bo;
   document.getElementById('b-partial').textContent=pa;
   document.getElementById('b-tbd').textContent=tb;
@@ -426,14 +423,13 @@ const CL_DATA=[
   ]},
   {id:'meetings',icon:'📅',title:'Upcoming meetings',items:[
     {id:'m1',name:'Hotel meeting — Dina (Design Team)',sub:'Thu May 14, 3:00 PM · Hall design & decor details',tags:[]},
-    {id:'m2',name:'Hotel meeting — Ahmed Shafie',sub:'Thu May 14, 3:00 PM · Entertainment & vendor details',tags:[]},
-    {id:'m3',name:'Client meeting — Maha & Hossam',sub:'Thu May 14, 5:00 PM · Final approvals · setup day confirmation',tags:[]},
+    {id:'m2',name:'Meeting — Mr Hussam Family & Hotel Management',sub:'Thu May 14, 5:00 PM · Vendor & entertainment details · final approvals · setup day confirmation',tags:[]},
     {id:'m4',name:'Lights meeting with design team',sub:'To be scheduled after hotel meeting',tags:[]},
   ]},
   {id:'zaffa',icon:'🎶',title:'Zaffa & singers',items:[
     {id:'z1',name:'Zaffa — confirm vendor & details',sub:'Timing, coordination with DJ',tags:[]},
-    {id:'z2',name:'Ahmed Saad — booked, 50% deposit paid',sub:'Singer · own performance slot',tags:[],pre:true},
-    {id:'z3',name:'Pay remaining 50% — Ahmed Saad',tags:[]},
+    {id:'z2',name:'Ahmed Saad — booked, 40% deposit paid',sub:'Singer · own performance slot',tags:[],pre:true},
+    {id:'z3',name:'Pay remaining 60% — Ahmed Saad',tags:[]},
   ]},
   {id:'dj',icon:'🎧',title:'DJ',items:[
     {id:'d1',name:'DJ Bassem Nagy — booked ✓',sub:'Contract confirmed',tags:[],pre:true},
@@ -449,7 +445,7 @@ const CL_DATA=[
   {id:'entrance-ent',icon:'🎻',title:'Entrance & dining entertainment',items:[
     {id:'ee1',name:'Entrance entertainment — book vendor',sub:'Violins · harp · ambient entertainment',tags:[]},
     {id:'ee2',name:'Dining entertainment — book vendor',sub:'During dinner performance',tags:[]},
-    {id:'ee3',name:'Confirm entrance entertainment details with Ahmed Shafie',tags:[]},
+    {id:'ee3',name:'Confirm entertainment details — Mr Hussam Family & Hotel Management meeting',sub:'Thu May 14, 5:00 PM',tags:[]},
   ]},
   {id:'decor',icon:'✨',title:'Decor & design',items:[
     {id:'ge1',name:'Guest entrance design confirmed',sub:'Layout done — entrance concept agreed',tags:[],pre:true},
@@ -474,7 +470,7 @@ const CL_DATA=[
   {id:'logistics',icon:'🚚',title:'Logistics & coordination',items:[
     {id:'lg1',name:'Book CMC logistics management',tags:[]},
     {id:'lg2',name:'Hire on-ground logistics team (URGENT)',sub:'Needed early — handle seating, client, supervisors & follow-ups',tags:[]},
-    {id:'lg3',name:'Confirm extra setup day',sub:'Thu night deliver → Fri setup → Sat event · awaiting Hossam & Maha approval',tags:[]},
+    {id:'lg3',name:'Confirm extra setup day',sub:'Thu night deliver → Fri setup → Sat event · to confirm after Mr Hussam Family & Hotel Management meeting',tags:[]},
     {id:'lg4',name:'Finalize vendor timeline & run-of-show',tags:[]},
     {id:'lg5',name:'Confirm transportation for decoration setup',tags:[]},
     {id:'lg6',name:'Guest entrance & registration process',tags:[]},
@@ -483,7 +479,7 @@ const CL_DATA=[
   {id:'budget',icon:'💰',title:'Contracts & payments',items:[
     {id:'bg1',name:'Preliminary client quotation',sub:'Shared — not yet finalized',tags:[]},
     {id:'bg2',name:'Sign remaining vendor contracts',sub:'Entertainment · Decoration · Photography · Logistics',tags:[]},
-    {id:'bg3',name:'Confirm payment schedule & remaining deposits',sub:'Carolina Karam 50% · Ahmed Saad 50% · others',tags:[]},
+    {id:'bg3',name:'Confirm payment schedule & remaining deposits',sub:'Carolina Karam 50% · Ahmed Saad 60% · others',tags:[]},
     {id:'bg4',name:'CMC management fees agreed',sub:'15% on all services · 5% on entertainment',tags:[]},
   ]},
 ];
