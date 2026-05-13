@@ -232,7 +232,7 @@ html,body{height:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sa
       <div class="sr"><div class="sr-text">Invitations</div><span class="pill done">Sent ✓</span></div>
       <div class="sr"><div class="sr-text">DJ Bassem Nagy</div><span class="pill done">Booked ✓</span></div>
       <div class="sr"><div class="sr-text"><div>Ahmed Saad — Singer</div><div class="sr-sub">50% deposit paid</div></div><span class="pill partial">Deposit paid</span></div>
-      <div class="sr"><div class="sr-text"><div>Carolina Karam</div><div class="sr-sub">50% deposit paid · solo vs. dancers TBC</div></div><span class="pill partial">Deposit paid</span></div>
+      <div class="sr"><div class="sr-text"><div>Carolina Karam — Singer</div><div class="sr-sub">50% deposit paid · solo confirmed</div></div><span class="pill partial">Deposit paid</span></div>
       <div class="sr"><div class="sr-text"><div>Cinema photography</div><div class="sr-sub">Exploring options — yet to decide</div></div><span class="pill discussion">TBD</span></div>
       <div class="sr"><div class="sr-text"><div>3D concept</div><div class="sr-sub">Arriving ~May 17</div></div><span class="pill pending">Upcoming</span></div>
       <div class="sr"><div class="sr-text"><div>Entertainment extras</div><div class="sr-sub">After final concept</div></div><span class="pill discussion">In discussion</span></div>
@@ -256,7 +256,7 @@ html,body{height:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sa
 <!-- ══ BOOKINGS ══ -->
 <div class="page" id="page-bookings">
   <div class="kpi-grid">
-    <div class="kpi"><div class="kpi-label">Total vendors</div><div class="kpi-val">8</div></div>
+    <div class="kpi"><div class="kpi-label">Total vendors</div><div class="kpi-val">12</div></div>
     <div class="kpi"><div class="kpi-label">Fully booked</div><div class="kpi-val g" id="b-booked">0</div></div>
     <div class="kpi"><div class="kpi-label">Deposit paid</div><div class="kpi-val a" id="b-partial">0</div></div>
     <div class="kpi"><div class="kpi-label">Pending / TBD</div><div class="kpi-val r" id="b-tbd">0</div></div>
@@ -315,14 +315,18 @@ html,body{height:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sa
 
 // ── BOOKINGS ──
 const BOOKINGS=[
-  {vendor:'Carolina Karam',cat:'Entertainment',status:'deposit',paid:'USD 5,000',remaining:'USD 5,000',notes:'Package to confirm after final concept'},
-  {vendor:'Ahmed Saad',cat:'Singer',status:'deposit',paid:'50%',remaining:'50% before event',notes:'Own performance slot'},
-  {vendor:'DJ Bassem Nagy',cat:'DJ',status:'booked',paid:'TBD',remaining:'TBD',notes:'Fully booked ✓'},
-  {vendor:'Hussein Abdelkader',cat:'Photography',status:'deposit',paid:'TBD',remaining:'TBD',notes:'Payment schedule to finalize'},
+  {vendor:'Carolina Karam',cat:'Entertainment',status:'deposit',paid:'50%',remaining:'50% before event',notes:'Solo performance · confirmed'},
+  {vendor:'Ahmed Saad',cat:'Singer',status:'deposit',paid:'50%',remaining:'50% before event',notes:'Dedicated live performance during the wedding'},
+  {vendor:'DJ Bassem Nagy',cat:'DJ',status:'deposit',paid:'30%',remaining:'70% after event',notes:'Booked ✓'},
+  {vendor:'Zaffa Oriental',cat:'Zaffa',status:'tbd',paid:'—',remaining:'—',notes:'Pending booking'},
+  {vendor:'Zaffa Lebanese',cat:'Zaffa',status:'tbd',paid:'—',remaining:'—',notes:'Pending booking'},
+  {vendor:'Entrance entertainment',cat:'Entertainment',status:'tbd',paid:'—',remaining:'—',notes:'Violins · harp · entertainment — pending'},
+  {vendor:'Dining entertainment',cat:'Entertainment',status:'tbd',paid:'—',remaining:'—',notes:'During dinner — pending'},
+  {vendor:'Hussein Abdelkader',cat:'Photography',status:'deposit',paid:'50%',remaining:'50% before event',notes:'Payment schedule to finalize'},
   {vendor:'Cinema photographer',cat:'Cinema',status:'tbd',paid:'—',remaining:'—',notes:'Exploring options — yet to decide'},
-  {vendor:'CMC Logistics',cat:'Logistics',status:'tbd',paid:'—',remaining:'EGP 120,000',notes:'Team to hire urgently'},
-  {vendor:'Dina — Design Team',cat:'Decoration',status:'tbd',paid:'—',remaining:'EGP 6M+',notes:'Post 3D concept & samples visit'},
-  {vendor:'Ahmed Shafie',cat:'Hotel vendor',status:'tbd',paid:'—',remaining:'TBD',notes:'Entertainment lineup — meeting May 14'},
+  {vendor:'CMC Logistics',cat:'Logistics',status:'tbd',paid:'—',remaining:'—',notes:'Team to hire urgently'},
+  {vendor:'Dina — Design Team',cat:'Decoration',status:'tbd',paid:'—',remaining:'—',notes:'Post 3D concept & samples visit'},
+  {vendor:'Ahmed Shafie',cat:'Hotel vendor',status:'tbd',paid:'—',remaining:'—',notes:'Entertainment lineup — meeting May 14'},
 ];
 const SL={booked:'Booked ✓',deposit:'Deposit paid',tbd:'Pending / TBD'};
 const SC={booked:'done',deposit:'partial',tbd:'warn'};
@@ -437,15 +441,19 @@ const CL_DATA=[
     {id:'d3',name:'Confirm DJ equipment requirements with venue',tags:[]},
   ]},
   {id:'entertainment',icon:'⭐',title:'Entertainment — Carolina Karam',items:[
-    {id:'e1',name:'Carolina Karam — booked, 50% deposit paid',sub:'Package details to confirm after final concept',tags:[],pre:true},
-    {id:'e2',name:'Finalize package — solo vs. with dancers',sub:'Solo: USD 10,000 · With dancers: USD 12,000',price:'USD 10–12k',tags:['decision']},
+    {id:'e1',name:'Carolina Karam — booked, 50% deposit paid',sub:'Solo performance · confirmed',tags:[],pre:true},
     {id:'e3',name:'Pay remaining 50% — Carolina Karam',tags:[]},
     {id:'e4',name:'Confirm performance schedule & contract details',tags:[]},
     {id:'e5',name:'Entertainment extras',sub:'To finalize after final concept confirmed',tags:['discussion']},
   ]},
+  {id:'entrance-ent',icon:'🎻',title:'Entrance & dining entertainment',items:[
+    {id:'ee1',name:'Entrance entertainment — book vendor',sub:'Violins · harp · ambient entertainment',tags:[]},
+    {id:'ee2',name:'Dining entertainment — book vendor',sub:'During dinner performance',tags:[]},
+    {id:'ee3',name:'Confirm entrance entertainment details with Ahmed Shafie',tags:[]},
+  ]},
   {id:'decor',icon:'✨',title:'Decor & design',items:[
     {id:'ge1',name:'Guest entrance design confirmed',sub:'Layout done — entrance concept agreed',tags:[],pre:true},
-    {id:'ge3',name:'Confirm live violinists for entrance',tags:['optional']},
+    {id:'ge3',name:'Confirm entrance entertainment',sub:'Violins · harp · ambient — pending booking',tags:[]},
     {id:'cl1',name:'Ceiling & wall style confirmed',sub:'Awaiting 3D to finalize details',tags:[],pre:true},
     {id:'bs1',name:'Bridal stage design confirmed',sub:'Details to finalize in 3D phase',tags:[],pre:true},
   ]},
@@ -464,11 +472,11 @@ const CL_DATA=[
     {id:'ph7',name:'360 camera',price:'EGP 11,000',tags:['optional']},
   ]},
   {id:'logistics',icon:'🚚',title:'Logistics & coordination',items:[
-    {id:'lg1',name:'Book CMC logistics management',price:'EGP 100,000',tags:[]},
+    {id:'lg1',name:'Book CMC logistics management',tags:[]},
     {id:'lg2',name:'Hire on-ground logistics team (URGENT)',sub:'Needed early — handle seating, client, supervisors & follow-ups',tags:[]},
     {id:'lg3',name:'Confirm extra setup day',sub:'Thu night deliver → Fri setup → Sat event · awaiting Hossam & Maha approval',tags:[]},
     {id:'lg4',name:'Finalize vendor timeline & run-of-show',tags:[]},
-    {id:'lg5',name:'Confirm transportation for decoration setup',price:'EGP 96,000',tags:[]},
+    {id:'lg5',name:'Confirm transportation for decoration setup',tags:[]},
     {id:'lg6',name:'Guest entrance & registration process',tags:[]},
     {id:'lg7',name:'Bridal party schedule & movement plan',tags:[]},
   ]},
@@ -476,7 +484,7 @@ const CL_DATA=[
     {id:'bg1',name:'Preliminary client quotation',sub:'Shared — not yet finalized',tags:[]},
     {id:'bg2',name:'Sign remaining vendor contracts',sub:'Entertainment · Decoration · Photography · Logistics',tags:[]},
     {id:'bg3',name:'Confirm payment schedule & remaining deposits',sub:'Carolina Karam 50% · Ahmed Saad 50% · others',tags:[]},
-    {id:'bg4',name:'CMC management fees agreed (20%)',tags:[]},
+    {id:'bg4',name:'CMC management fees agreed',sub:'15% on all services · 5% on entertainment',tags:[]},
   ]},
 ];
 
