@@ -7,48 +7,70 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#f5f4f0;--card:#fff;--border:#e8e8e5;--ink:#1a1a1a;--muted:#888;
-  --green:#1D9E75;--green-bg:#dcf5ec;--green-text:#166f50;
-  --amber:#c0811a;--amber-bg:#fff3dc;--amber-text:#995f0a;
-  --red:#c0392b;--red-bg:#fff0f0;--blue:#1a6abf;--blue-bg:#edf4ff;
-  --gold:#b8962e;--gold-bg:#fdf6e3;
+  --bg:#FFF5F2;--card:#fffcfb;--border:#DCCEBB;--ink:#3a2e2e;--muted:#9e8e8e;
+  --green:#a0756e;--green-bg:#F2C3C2;--green-text:#7a3f3a;
+  --amber:#b08060;--amber-bg:#f5e8d8;--amber-text:#7a4e2a;
+  --red:#c0392b;--red-bg:#fde8e6;--blue:#8a7060;--blue-bg:#EAD0D2;
+  --gold:#b8962e;--gold-bg:#f7efe0;--purple:#9a7080;--purple-bg:#f5eaed;
+  --beige:#E8DCCF;--blush:#F2C3C2;--sand:#DCCEBB;--rose:#EAD0D2;--cream:#FFF5F2;
 }
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--ink);min-height:100vh}
-.nav{background:#1a1a1a;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 20px;height:52px;position:sticky;top:0;z-index:200}
+.nav{background:#3a2e2e;color:#FFF5F2;display:flex;align-items:center;justify-content:space-between;padding:0 20px;height:52px;position:sticky;top:0;z-index:200}
 .nav-brand{font-size:14px;font-weight:500}
-.nav-brand span{color:#c8a96e}
+.nav-brand span{color:#E8DCCF}
 .nav-tabs{display:flex;gap:2px}
-.nav-tab{font-size:13px;padding:6px 14px;border-radius:6px;cursor:pointer;color:#aaa;background:transparent;border:none;font-family:inherit;transition:all .15s}
-.nav-tab:hover{color:#fff}
-.nav-tab.active{background:#333;color:#fff}
-.concept-badge{font-size:11px;background:#b8962e22;color:#c8a96e;border:1px solid #b8962e44;border-radius:999px;padding:3px 12px}
+.nav-tab{font-size:13px;padding:6px 14px;border-radius:6px;cursor:pointer;color:#c9b8b0;background:transparent;border:none;font-family:inherit;transition:all .15s}
+.nav-tab:hover{color:#FFF5F2}
+.nav-tab.active{background:#5a4a4a;color:#FFF5F2}
+.concept-badge{font-size:11px;background:#E8DCCF22;color:#E8DCCF;border:1px solid #E8DCCF55;border-radius:999px;padding:3px 12px}
 .page{display:none;padding:20px 18px 60px;max-width:1000px;margin:0 auto}
 .page.active{display:block}
 
-/* KPI grid */
-.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:18px}
+.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:14px}
 .kpi{background:var(--card);border:.5px solid var(--border);border-radius:10px;padding:14px 16px}
 .kpi-label{font-size:11px;color:var(--muted);margin-bottom:5px}
 .kpi-val{font-size:24px;font-weight:700}
 .kpi-val.g{color:var(--green)}.kpi-val.a{color:var(--amber)}.kpi-val.gold{color:var(--gold)}.kpi-val.r{color:var(--red)}
 
-/* concept card */
-.concept-card{background:linear-gradient(135deg,#1a1a1a,#2d2d2d);border-radius:12px;padding:18px 22px;color:#fff;margin-bottom:14px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.concept-card{background:linear-gradient(135deg,#3a2e2e,#5a4040);border-radius:12px;padding:18px 22px;color:#FFF5F2;margin-bottom:14px;display:flex;align-items:center;justify-content:space-between;gap:12px}
 .concept-card h3{font-size:14px;font-weight:500;margin-bottom:4px}
-.concept-card p{font-size:12px;color:#bbb;line-height:1.6}
-.concept-check{background:#b8962e22;border:1px solid #b8962e55;color:#c8a96e;font-size:12px;padding:4px 14px;border-radius:999px;white-space:nowrap;flex-shrink:0}
+.concept-card p{font-size:12px;color:#E8DCCF;line-height:1.6}
+.concept-check{background:#E8DCCF22;border:1px solid #E8DCCF66;color:#E8DCCF;font-size:12px;padding:4px 14px;border-radius:999px;white-space:nowrap;flex-shrink:0}
+
+.meeting-card{background:#f9efec;border:.5px solid var(--border);border-radius:12px;padding:16px 18px;margin-bottom:14px}
+.meeting-card h4{font-size:13px;font-weight:600;color:#8a5a50;margin-bottom:10px}
+.meeting-slot{display:flex;align-items:flex-start;gap:12px;padding:8px 0;border-bottom:.5px solid #E8DCCF}
+.meeting-slot:last-child{border-bottom:none}
+.meeting-time{font-size:13px;font-weight:700;color:#a0756e;min-width:48px;flex-shrink:0}
+.meeting-info{flex:1}
+.meeting-name{font-size:13px;font-weight:500}
+.meeting-sub{font-size:12px;color:var(--muted);margin-top:2px}
+
 .two-col{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
 .card{background:var(--card);border:.5px solid var(--border);border-radius:12px;padding:16px 18px}
 .card h4{font-size:13px;font-weight:600;margin-bottom:12px}
-.sec-title{font-size:12px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin:18px 0 10px}
-.status-row{display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-bottom:.5px solid var(--border);font-size:13px}
+.status-row{display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-bottom:.5px solid var(--border);font-size:13px;gap:8px}
 .status-row:last-child{border-bottom:none}
-.status-row .sr-text{flex:1}
+.sr-text{flex:1}
 .sr-sub{font-size:11px;color:var(--muted);margin-top:2px}
-.pill{font-size:11px;padding:3px 10px;border-radius:999px;font-weight:500;white-space:nowrap}
+.pill{font-size:11px;padding:3px 10px;border-radius:999px;font-weight:500;white-space:nowrap;flex-shrink:0}
 .pill.done{background:var(--green-bg);color:var(--green-text)}
 .pill.pending{background:var(--amber-bg);color:var(--amber-text)}
+.pill.partial{background:var(--purple-bg);color:var(--purple)}
+.pill.discussion{background:var(--blue-bg);color:var(--blue)}
 .pill.warn{background:var(--red-bg);color:var(--red)}
+.pill.na{background:#f0ebe8;color:#999}
+
+/* BOOKINGS TABLE */
+.book-table{width:100%;border-collapse:collapse}
+.book-table th{font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;padding:8px 12px;text-align:left;border-bottom:.5px solid var(--border);background:#faf7f5}
+.book-table td{font-size:13px;padding:10px 12px;border-bottom:.5px solid #f0ebe8;vertical-align:middle}
+.book-table tr:last-child td{border-bottom:none}
+.book-table tr:hover td{background:#fdf9f7}
+.money-paid{color:var(--green-text);font-weight:600}
+.money-rem{color:var(--amber-text);font-weight:600}
+.money-tbd{color:var(--muted)}
+
 .dec-item{display:flex;align-items:flex-start;gap:9px;padding:8px 0;border-bottom:.5px solid var(--border)}
 .dec-item:last-child{border-bottom:none}
 .dec-dot{width:7px;height:7px;border-radius:50%;background:var(--amber);flex-shrink:0;margin-top:5px}
@@ -56,69 +78,61 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .dec-text{font-size:13px;flex:1;line-height:1.4}
 .dec-tag{font-size:11px;padding:2px 8px;border-radius:999px;background:var(--amber-bg);color:var(--amber-text);white-space:nowrap}
 .dec-tag.done{background:var(--green-bg);color:var(--green-text)}
-.budget-row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:.5px solid var(--border);font-size:13px}
-.budget-row:last-child{border-bottom:none;font-weight:600;padding-top:10px}
 
 /* GUESTS */
-.alert-box{border-radius:9px;padding:12px 16px;margin-bottom:12px;font-size:13px;line-height:1.6}
-.alert-warn{background:#fff8ec;border:.5px solid #e8d89a;color:#7a5f0a}
-.alert-info{background:var(--blue-bg);border:.5px solid #c0d8f5;color:#164a80}
 .g-controls{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap;align-items:center}
 .g-search{flex:1;min-width:180px;font-size:13px;padding:7px 12px;border:1px solid var(--border);border-radius:8px;background:var(--card);font-family:inherit;outline:none}
-.g-search:focus{border-color:#999}
-.g-filter{font-size:12px;padding:6px 14px;border-radius:999px;border:1px solid var(--border);background:var(--card);color:#555;cursor:pointer;font-family:inherit;transition:all .15s}
-.g-filter:hover{border-color:#999}
-.g-filter.active{background:#1a1a1a;color:#fff;border-color:#1a1a1a}
+.g-search:focus{border-color:#a0756e}
+.g-filter{font-size:12px;padding:6px 14px;border-radius:999px;border:1px solid var(--border);background:var(--card);color:#7a6060;cursor:pointer;font-family:inherit;transition:all .15s}
+.g-filter:hover{border-color:#a0756e}
+.g-filter.active{background:#3a2e2e;color:#FFF5F2;border-color:#3a2e2e}
 .guest-table{width:100%;border-collapse:collapse;background:var(--card);border-radius:12px;overflow:hidden;border:.5px solid var(--border)}
-.guest-table th{font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;padding:9px 14px;text-align:left;border-bottom:.5px solid var(--border);background:#fafafa;white-space:nowrap}
-.guest-table td{font-size:13px;padding:9px 14px;border-bottom:.5px solid #f0f0f0;vertical-align:middle}
+.guest-table th{font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;padding:9px 14px;text-align:left;border-bottom:.5px solid var(--border);background:#faf7f5;white-space:nowrap}
+.guest-table td{font-size:13px;padding:9px 14px;border-bottom:.5px solid #f0ebe8;vertical-align:middle}
 .guest-table tr:last-child td{border-bottom:none}
-.guest-table tbody tr:hover td{background:#fafafa}
-.guest-table .flag{font-size:11px;padding:2px 8px;border-radius:999px;margin-left:6px}
-.flag-test{background:#f0f0f0;color:#888}
-.flag-dup{background:var(--amber-bg);color:var(--amber-text)}
-.num-badge{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:6px;font-weight:700;font-size:13px;background:#f0f0f0}
+.guest-table tbody tr:hover td{background:#fdf9f7}
+.num-badge{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:6px;font-weight:700;font-size:13px;background:#f0ebe8}
 .num-badge.big{background:var(--green-bg);color:var(--green-text)}
 .status-dot{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:6px}
-.dot-att{background:var(--green)}
-.dot-dec{background:var(--red)}
+.dot-att{background:#a0756e}.dot-dec{background:var(--red)}
 .g-count-row{font-size:12px;color:var(--muted);margin-bottom:8px}
 
 /* CHECKLIST */
 .cl-filter{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap}
-.cl-btn{font-size:12px;padding:6px 14px;border-radius:999px;border:1px solid var(--border);background:var(--card);color:#555;cursor:pointer;font-family:inherit;transition:all .15s}
-.cl-btn:hover{border-color:#999}
-.cl-btn.active{background:#1a1a1a;color:#fff;border-color:#1a1a1a}
+.cl-btn{font-size:12px;padding:6px 14px;border-radius:999px;border:1px solid var(--border);background:var(--card);color:#7a6060;cursor:pointer;font-family:inherit;transition:all .15s}
+.cl-btn:hover{border-color:#a0756e}
+.cl-btn.active{background:#3a2e2e;color:#FFF5F2;border-color:#3a2e2e}
 .cl-section{background:var(--card);border:.5px solid var(--border);border-radius:12px;margin-bottom:10px;overflow:hidden}
 .cl-head{display:flex;align-items:center;gap:10px;padding:13px 16px;cursor:pointer;transition:background .1s}
-.cl-head:hover{background:#fafafa}
+.cl-head:hover{background:#fdf9f7}
 .cl-icon{font-size:16px;width:20px;text-align:center}
 .cl-title{font-size:14px;font-weight:500;flex:1}
-.cl-badge{font-size:11px;padding:3px 10px;border-radius:999px;background:#f0f0f0;color:#666}
+.cl-badge{font-size:11px;padding:3px 10px;border-radius:999px;background:#f0ebe8;color:#9a8070}
 .cl-badge.done{background:var(--green-bg);color:var(--green-text)}
 .cl-badge.partial{background:var(--amber-bg);color:var(--amber-text)}
-.chevron{color:#bbb;transition:transform .2s;font-size:15px}
+.chevron{color:#c9b0a8;transition:transform .2s;font-size:15px}
 .chevron.open{transform:rotate(180deg)}
-.prog-track{height:3px;background:#f0f0f0}
-.prog-fill{height:100%;background:var(--green);transition:width .3s}
-.cl-item{display:flex;align-items:flex-start;gap:11px;padding:10px 16px;border-bottom:.5px solid #f5f5f5}
+.prog-track{height:3px;background:#f0ebe8}
+.prog-fill{height:100%;background:#a0756e;transition:width .3s}
+.cl-item{display:flex;align-items:flex-start;gap:11px;padding:10px 16px;border-bottom:.5px solid #f7f2f0}
 .cl-item:last-child{border-bottom:none}
 .cl-item label{display:flex;align-items:flex-start;gap:10px;cursor:pointer;flex:1}
-.cl-item input[type=checkbox]{margin-top:2px;width:15px;height:15px;flex-shrink:0;cursor:pointer;accent-color:var(--green)}
+.cl-item input[type=checkbox]{margin-top:2px;width:15px;height:15px;flex-shrink:0;cursor:pointer;accent-color:#a0756e}
 .cl-item-content{flex:1}
 .cl-item-name{font-size:13px;color:var(--ink);line-height:1.45}
-.cl-item-name.checked{text-decoration:line-through;color:#ccc}
+.cl-item-name.checked{text-decoration:line-through;color:#c9b0a8}
 .cl-item-sub{font-size:12px;color:var(--muted);margin-top:3px;line-height:1.5}
-.cl-tags{margin-top:4px;display:flex;gap:4px}
+.cl-tags{margin-top:4px;display:flex;gap:4px;flex-wrap:wrap}
 .tag-d{font-size:11px;padding:2px 8px;border-radius:999px;background:var(--red-bg);color:var(--red);font-weight:500}
 .tag-o{font-size:11px;padding:2px 8px;border-radius:999px;background:var(--blue-bg);color:var(--blue);font-weight:500}
+.tag-p{font-size:11px;padding:2px 8px;border-radius:999px;background:var(--purple-bg);color:var(--purple);font-weight:500}
 .cl-price{font-size:12px;font-weight:500;color:var(--muted);white-space:nowrap;padding-left:10px;flex-shrink:0;margin-top:2px}
 
 @media(max-width:640px){
   .kpi-grid,.two-col{grid-template-columns:repeat(2,1fr)}
   .concept-card{flex-direction:column;align-items:flex-start}
   .nav-brand span{display:none}
-  th:nth-child(4),td:nth-child(4),th:nth-child(6),td:nth-child(6){display:none}
+  th:nth-child(5),td:nth-child(5),th:nth-child(6),td:nth-child(6){display:none}
 }
 </style>
 </head>
@@ -128,6 +142,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
   <div class="nav-brand">Ahmed & Tahany <span>· July 4, 2026</span></div>
   <div class="nav-tabs">
     <button class="nav-tab active" onclick="goTo('dashboard',this)">Dashboard</button>
+    <button class="nav-tab" onclick="goTo('bookings',this)">Bookings</button>
     <button class="nav-tab" onclick="goTo('guests',this)">Guests</button>
     <button class="nav-tab" onclick="goTo('checklist',this)">Checklist</button>
   </div>
@@ -138,7 +153,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 <div class="page active" id="page-dashboard">
   <div class="kpi-grid">
     <div class="kpi"><div class="kpi-label">Days to Wedding</div><div class="kpi-val gold" id="countdown">—</div></div>
-    <div class="kpi"><div class="kpi-label">Headcount confirmed</div><div class="kpi-val g">104</div></div>
+    <div class="kpi"><div class="kpi-label">Expected guests</div><div class="kpi-val g">330 <span style="font-size:14px;color:var(--muted)">+24</span></div></div>
     <div class="kpi"><div class="kpi-label">Checklist done</div><div class="kpi-val" id="dash-done">0%</div></div>
     <div class="kpi"><div class="kpi-label">Decisions pending</div><div class="kpi-val a" id="dash-dec">—</div></div>
   </div>
@@ -146,81 +161,121 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
   <div class="concept-card">
     <div>
       <h3>Concept 1 — Dreamy Heaven ✓ Selected</h3>
-      <p>Ethereal clouds · Moonlight glow · Blush florals · Ivory columns · Sphere lighting<br>Warm Beige / Dusty Rose / Champagne Gold · Four Seasons Nile Plaza · July 4, 2026</p>
+      <p>Ethereal clouds · Moonlight glow · Blush florals · Ivory columns · Sphere lighting<br>Warm Beige / Dusty Rose / Champagne Gold · Four Seasons Nile Plaza · July 4, 2026<br>3D concept arriving ~May 17 · Layout finalized · Invitations sent ✓</p>
     </div>
     <div class="concept-check">Confirmed</div>
   </div>
 
-  <div class="two-col">
-    <div class="card">
-      <h4>🔴 Open decisions</h4>
-      <div id="decisions-list"></div>
+  <div class="meeting-card">
+    <h4>📅 Tomorrow's meetings — Thursday May 14</h4>
+    <div class="meeting-slot">
+      <div class="meeting-time">1:00 PM</div>
+      <div class="meeting-info">
+        <div class="meeting-name">Dina — Design Agency</div>
+        <div class="meeting-sub">Hall design & decor details · Four Seasons Nile Plaza</div>
+      </div>
     </div>
-    <div class="card">
-      <h4>📊 RSVP snapshot</h4>
-      <div class="status-row"><div class="sr-text">RSVPs received</div><strong>50</strong></div>
-      <div class="status-row"><div class="sr-text">Confirmed attending (entries)</div><strong style="color:var(--green)">46</strong></div>
-      <div class="status-row"><div class="sr-text">Total headcount</div><strong style="color:var(--green)">104</strong></div>
-      <div class="status-row"><div class="sr-text">Declining</div><strong style="color:var(--red)">3</strong></div>
-      <div class="status-row"><div class="sr-text">Venue capacity remaining</div><strong style="color:var(--amber)">296</strong></div>
-      <div class="status-row"><div class="sr-text"><div>⚠️ Needs review</div><div class="sr-sub">Test entry · Possible duplicates (Sally, Mohamed Sobhy)</div></div><span class="pill warn">2 flags</span></div>
+    <div class="meeting-slot">
+      <div class="meeting-time">3:00 PM</div>
+      <div class="meeting-info">
+        <div class="meeting-name">Ahmed Shafie — Wedding Vendor (Hotel)</div>
+        <div class="meeting-sub">Finalize entertainment & vendor details</div>
+      </div>
+    </div>
+    <div class="meeting-slot">
+      <div class="meeting-time">5:00 PM</div>
+      <div class="meeting-info">
+        <div class="meeting-name">Maha & Hossam — Clients</div>
+        <div class="meeting-sub">Review & final approvals · extra setup day confirmation (Thu night → Fri setup → Sat event)</div>
+      </div>
     </div>
   </div>
 
-  <div class="two-col">
-    <div class="card">
-      <h4>📅 Upcoming milestones</h4>
-      <div class="status-row"><div class="sr-text">Site visit with decorator</div><span class="pill pending">Schedule</span></div>
-      <div class="status-row"><div class="sr-text">Sign all vendor contracts</div><span class="pill pending">In progress</span></div>
-      <div class="status-row"><div class="sr-text"><div>Digital invitations</div><div class="sr-sub">Guest list QR generation pending</div></div><span class="pill pending">Pending</span></div>
-      <div class="status-row"><div class="sr-text">Wedding concept</div><span class="pill done">Done ✓</span></div>
+  <div class="card" style="margin-bottom:14px">
+    <h4>⚡ Status overview</h4>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:0">
+      <div class="status-row" style="padding-right:16px"><div class="sr-text">Hall layout</div><span class="pill done">Finalized ✓</span></div>
+      <div class="status-row" style="padding-left:16px;border-left:.5px solid var(--border)"><div class="sr-text">Invitations</div><span class="pill done">Sent ✓</span></div>
+      <div class="status-row" style="padding-right:16px"><div class="sr-text">DJ Bassem Nagy</div><span class="pill done">Booked ✓</span></div>
+      <div class="status-row" style="padding-left:16px;border-left:.5px solid var(--border)"><div class="sr-text"><div>Ahmed Saad — Singer</div><div class="sr-sub">50% deposit paid</div></div><span class="pill partial">Deposit paid</span></div>
+      <div class="status-row" style="padding-right:16px"><div class="sr-text"><div>Carolina Karam</div><div class="sr-sub">50% deposit paid · solo vs. dancers TBC</div></div><span class="pill partial">Deposit paid</span></div>
+      <div class="status-row" style="padding-left:16px;border-left:.5px solid var(--border)"><div class="sr-text"><div>Cinema photography</div><div class="sr-sub">Exploring options — yet to decide</div></div><span class="pill discussion">TBD</span></div>
+      <div class="status-row" style="padding-right:16px"><div class="sr-text"><div>3D concept</div><div class="sr-sub">Arriving ~May 17</div></div><span class="pill pending">Upcoming</span></div>
+      <div class="status-row" style="padding-left:16px;border-left:.5px solid var(--border)"><div class="sr-text"><div>Entertainment extras</div><div class="sr-sub">After final concept</div></div><span class="pill discussion">In discussion</span></div>
+      <div class="status-row" style="padding-right:16px"><div class="sr-text"><div>Culinary quotation</div><div class="sr-sub">After hotel meeting</div></div><span class="pill discussion">In discussion</span></div>
+      <div class="status-row" style="padding-left:16px;border-left:.5px solid var(--border)"><div class="sr-text"><div>Setup extra day</div><div class="sr-sub">Awaiting Hossam & Maha</div></div><span class="pill pending">Awaiting</span></div>
+      <div class="status-row" style="padding-right:16px;border-bottom:none"><div class="sr-text">Logistics team hire</div><span class="pill warn">Urgent</span></div>
+      <div class="status-row" style="padding-left:16px;border-left:.5px solid var(--border);border-bottom:none"><div class="sr-text"><div>Production house visit</div><div class="sr-sub">After 3D concept</div></div><span class="pill pending">After May 17</span></div>
     </div>
-    <div class="card">
-      <h4>💰 Budget snapshot — Concept 1</h4>
-      <div class="budget-row"><span>Decoration (incl. VAT)</span><span>EGP 6,002,898</span></div>
-      <div class="budget-row"><span>Management fees (20%)</span><span>EGP 1,200,580</span></div>
-      <div class="budget-row"><span>Photography</span><span>EGP 132,000</span></div>
-      <div class="budget-row"><span>Logistics (CMC)</span><span>EGP 120,000</span></div>
-      <div class="budget-row"><span>Transport + invitation</span><span>EGP 108,000</span></div>
-      <div class="budget-row"><span>Total estimate</span><span style="color:var(--gold)">EGP ~7.6M+</span></div>
+  </div>
+
+  <div class="card" style="margin-bottom:14px">
+    <h4>🎯 Guest follow-up plan</h4>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;padding-top:8px">
+      <div style="flex:1;min-width:160px;background:#faf7f5;border:.5px solid var(--border);border-radius:10px;padding:14px">
+        <div style="font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px">Level 1</div>
+        <div style="font-size:13px;line-height:1.6">Family members personally reach out to guests to check who's attending</div>
+      </div>
+      <div style="flex:1;min-width:160px;background:#faf7f5;border:.5px solid var(--border);border-radius:10px;padding:14px">
+        <div style="font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px">Level 2</div>
+        <div style="font-size:13px;line-height:1.6">The team follows up directly with guests to confirm exact headcounts</div>
+      </div>
+      <div style="flex:1;min-width:160px;background:#faf7f5;border:.5px solid var(--border);border-radius:10px;padding:14px">
+        <div style="font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px">Level 3</div>
+        <div style="font-size:13px;line-height:1.6">Morning of the wedding — a personalised message is sent:<br><em>"We're looking forward to seeing you tonight" 🎉</em></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ BOOKINGS ══ -->
+<div class="page" id="page-bookings">
+  <div class="kpi-grid" style="grid-template-columns:repeat(4,1fr)">
+    <div class="kpi"><div class="kpi-label">Total vendors</div><div class="kpi-val">8</div></div>
+    <div class="kpi"><div class="kpi-label">Fully booked</div><div class="kpi-val g" id="b-booked">0</div></div>
+    <div class="kpi"><div class="kpi-label">Deposit paid</div><div class="kpi-val a" id="b-partial">0</div></div>
+    <div class="kpi"><div class="kpi-label">Pending / TBD</div><div class="kpi-val r" id="b-tbd">0</div></div>
+  </div>
+
+  <div class="card">
+    <h4>📋 Vendor bookings & payments</h4>
+    <div style="overflow-x:auto">
+    <table class="book-table" id="book-table">
+      <thead>
+        <tr>
+          <th>Vendor</th>
+          <th>Category</th>
+          <th>Status</th>
+          <th>Paid</th>
+          <th>Remaining</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody id="book-tbody"></tbody>
+    </table>
     </div>
   </div>
 </div>
 
 <!-- ══ GUESTS ══ -->
 <div class="page" id="page-guests">
-
   <div class="kpi-grid" style="grid-template-columns:repeat(5,1fr)">
-    <div class="kpi"><div class="kpi-label">RSVPs received</div><div class="kpi-val">50</div></div>
+    <div class="kpi"><div class="kpi-label">RSVPs received</div><div class="kpi-val">49</div></div>
     <div class="kpi"><div class="kpi-label">Attending entries</div><div class="kpi-val g">46</div></div>
-    <div class="kpi"><div class="kpi-label">Total headcount</div><div class="kpi-val g">104</div></div>
+    <div class="kpi"><div class="kpi-label">Headcount (RSVPs)</div><div class="kpi-val g">103</div></div>
     <div class="kpi"><div class="kpi-label">Declining</div><div class="kpi-val r">3</div></div>
-    <div class="kpi"><div class="kpi-label">Capacity left</div><div class="kpi-val a">296</div></div>
+    <div class="kpi"><div class="kpi-label">Expected total</div><div class="kpi-val gold">330+24</div></div>
   </div>
-
-
   <div class="g-controls">
     <input class="g-search" type="text" placeholder="Search by name…" oninput="filterGuests()" id="g-search">
-    <button class="g-filter active" onclick="setGFilter('all',this)">All (50)</button>
+    <button class="g-filter active" onclick="setGFilter('all',this)">All (49)</button>
     <button class="g-filter" onclick="setGFilter('attending',this)">Attending (46)</button>
     <button class="g-filter" onclick="setGFilter('declining',this)">Declining (3)</button>
-
   </div>
-
-  <div class="g-count-row" id="g-count-row">Showing 50 guests</div>
-
+  <div class="g-count-row" id="g-count-row">Showing 49 guests</div>
   <div style="overflow-x:auto">
-  <table class="guest-table" id="guest-table">
-    <thead>
-      <tr>
-        <th>#</th>
-        <th>Name</th>
-        <th>Status</th>
-        <th>Headcount</th>
-        <th>Responded</th>
-        <th>Guest ID</th>
-      </tr>
-    </thead>
+  <table class="guest-table">
+    <thead><tr><th>#</th><th>Name</th><th>Status</th><th>Headcount</th><th>Responded</th><th>Guest ID</th></tr></thead>
     <tbody id="guest-tbody"></tbody>
   </table>
   </div>
@@ -239,97 +294,116 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 </div>
 
 <script>
-// ── COUNTDOWN ──
 (function(){
-  const d = Math.ceil((new Date('2026-07-04') - new Date()) / 864e5);
-  document.getElementById('countdown').textContent = d > 0 ? d+'d' : 'Today!';
+  const d=Math.ceil((new Date('2026-07-04')-new Date())/864e5);
+  document.getElementById('countdown').textContent=d>0?d+'d':'Today!';
 })();
 
-// ── GUEST DATA ──
-const GUESTS = [
-  {id:'GST-IDJ767',name:'Ali Hussein',attendance:'Attending',count:4,ts:'2026-05-06',flags:[]},
-  {id:'GST-I84EEV',name:'Hamis',attendance:'Attending',count:2,ts:'2026-05-06',flags:[]},
-  {id:'GST-E3Z3LA',name:'Farida Wael',attendance:'Attending',count:2,ts:'2026-05-06',flags:[]},
-
-  {id:'GST-6P8CON',name:'Hesham Kayed',attendance:'Attending',count:2,ts:'2026-05-06',flags:[]},
-  {id:'GST-1RQ8VF',name:'Shahd Shabana',attendance:'Attending',count:3,ts:'2026-05-06',flags:[]},
-  {id:'GST-G6EQUX',name:'Sally Abo El Seoud',attendance:'Attending',count:3,ts:'2026-05-06',flags:[]},
-  {id:'GST-WS4OJV',name:'Nora ElTayer',attendance:'Attending',count:3,ts:'2026-05-06',flags:[]},
-  {id:'GST-106L66',name:'Amr Amir',attendance:'Attending',count:6,ts:'2026-05-06',flags:[]},
-  {id:'GST-UBU0GY',name:'Jana Arafa',attendance:'Attending',count:5,ts:'2026-05-07',flags:[]},
-  {id:'GST-Z9JSPH',name:'Karim El Kabbani',attendance:'Attending',count:1,ts:'2026-05-07',flags:[]},
-  {id:'GST-X3LR2A',name:'Walid Abdulaziz',attendance:'Attending',count:1,ts:'2026-05-07',flags:[]},
-  {id:'GST-AQA1Y3',name:'Ezzeldeen Magdy',attendance:'Attending',count:2,ts:'2026-05-07',flags:[]},
-  {id:'GST-PSB8DT',name:'Heba Nabil',attendance:'Attending',count:1,ts:'2026-05-07',flags:[]},
-  {id:'GST-RUO3S9',name:'Belal El Toukhi',attendance:'Attending',count:1,ts:'2026-05-07',flags:[]},
-  {id:'GST-A4MEU8',name:'Kareem Alansari',attendance:'Attending',count:1,ts:'2026-05-07',flags:[]},
-  {id:'GST-Q84DU5',name:'Sarah M. Hany Osman',attendance:'Attending',count:1,ts:'2026-05-07',flags:[]},
-  {id:'GST-PXI4VJ',name:'Nour Yehia',attendance:'Attending',count:2,ts:'2026-05-07',flags:[]},
-  {id:'GST-S8TTVL',name:'Eatimad Shoreibah',attendance:'Attending',count:1,ts:'2026-05-07',flags:[]},
-  {id:'GST-POSJHV',name:'Salah El Deen Sabry',attendance:'Attending',count:1,ts:'2026-05-07',flags:[]},
-  {id:'GST-3BG5EY',name:'Youssef Elgendy',attendance:'Attending',count:1,ts:'2026-05-07',flags:[]},
-  {id:'GST-RUHEW2',name:'Ashraqat Reda',attendance:'Attending',count:1,ts:'2026-05-07',flags:[]},
-  {id:'GST-6AF8EI',name:'Nour Anwar Shaban',attendance:'Attending',count:1,ts:'2026-05-07',flags:[]},
-  {id:'GST-ID4C1A',name:'Hala Elassal',attendance:'Attending',count:1,ts:'2026-05-08',flags:[]},
-  {id:'GST-L9H179',name:'Sally Kafahir',attendance:'Attending',count:1,ts:'2026-05-08',flags:[]},
-  {id:'GST-KJBWYP',name:'Julia Houhou',attendance:'Attending',count:1,ts:'2026-05-08',flags:[]},
-  {id:'GST-XZ5UIO',name:'Sara Taher',attendance:'Declining',count:0,ts:'2026-05-08',flags:[]},
-  {id:'GST-3U653P',name:'Karim Bolbil',attendance:'Attending',count:1,ts:'2026-05-08',flags:[]},
-  {id:'GST-2ELJME',name:'Zeina Sherif',attendance:'Attending',count:1,ts:'2026-05-08',flags:[]},
-  {id:'GST-WRE3BW',name:'Sally Kafshir',attendance:'Attending',count:1,ts:'2026-05-08',flags:[]},
-  {id:'GST-CI6D0L',name:'Salma El Sabban',attendance:'Declining',count:0,ts:'2026-05-08',flags:[]},
-  {id:'GST-MMSKTZ',name:'عمرو المغربي',attendance:'Attending',count:5,ts:'2026-05-09',flags:[]},
-  {id:'GST-BDH8IY',name:'Mouafak Hasan',attendance:'Attending',count:4,ts:'2026-05-09',flags:[]},
-  {id:'GST-DWVEY4',name:'George Ramsis',attendance:'Attending',count:2,ts:'2026-05-09',flags:[]},
-  {id:'GST-W3RTGZ',name:'Mohamed Sobhy',attendance:'Attending',count:1,ts:'2026-05-09',flags:[]},
-  {id:'GST-KYVPBV',name:'Maha Ahmed Abbas',attendance:'Attending',count:1,ts:'2026-05-09',flags:[]},
-  {id:'GST-1611ST',name:'Amr Magdy Kamal',attendance:'Attending',count:3,ts:'2026-05-09',flags:[]},
-  {id:'GST-QGO33R',name:'Samir Osman',attendance:'Attending',count:2,ts:'2026-05-09',flags:[]},
-  {id:'GST-GMXBVR',name:'Tamer Soliman Halawa',attendance:'Attending',count:3,ts:'2026-05-09',flags:[]},
-  {id:'GST-UPABN3',name:'Yousef Tarek Mohamed',attendance:'Attending',count:2,ts:'2026-05-09',flags:[]},
-  {id:'GST-0ECQPD',name:'Mostafa Khaled',attendance:'Attending',count:2,ts:'2026-05-09',flags:[]},
-  {id:'GST-L4FJZL',name:'Amr Alaa Shoreibah',attendance:'Attending',count:6,ts:'2026-05-09',flags:[]},
-  {id:'GST-YDD97K',name:'Mohamed Sobhy',attendance:'Attending',count:8,ts:'2026-05-09',flags:[]},
-  {id:'GST-LTCN4S',name:'Joudi Mansour',attendance:'Attending',count:1,ts:'2026-05-10',flags:[]},
-  {id:'GST-WESYOE',name:'Zeinab Shoreibah',attendance:'Attending',count:1,ts:'2026-05-10',flags:[]},
-  {id:'GST-0Y6E0I',name:'Serene Ayas',attendance:'Attending',count:2,ts:'2026-05-10',flags:[]},
-  {id:'GST-XJE8UK',name:'Amr Elmgrabey',attendance:'Attending',count:2,ts:'2026-05-10',flags:[]},
-  {id:'GST-Q37TMD',name:'Mohamed Galal Shoreibah',attendance:'Attending',count:5,ts:'2026-05-10',flags:[]},
-  {id:'GST-T9CPCY',name:'Serene Taher',attendance:'Declining',count:0,ts:'2026-05-11',flags:[]},
-  {id:'GST-FC0C5I',name:'Nina Kabbany',attendance:'Attending',count:3,ts:'2026-05-12',flags:[]},
+// ── BOOKINGS ──
+const BOOKINGS=[
+  {vendor:'Carolina Karam',cat:'Entertainment',status:'deposit',paid:'USD 5,000',remaining:'USD 5,000',notes:'Package details to confirm after final concept'},
+  {vendor:'Ahmed Saad',cat:'Zaffa',status:'deposit',paid:'50%',remaining:'50% before event',notes:'Before-dinner Zaffa'},
+  {vendor:'DJ Bassem Nagy',cat:'DJ',status:'booked',paid:'TBD',remaining:'TBD',notes:'Fully booked ✓'},
+  {vendor:'Hussein Abdelkader',cat:'Photography',status:'deposit',paid:'TBD',remaining:'TBD',notes:'Payment schedule to finalize'},
+  {vendor:'Cinema photographer',cat:'Cinema photo',status:'tbd',paid:'—',remaining:'—',notes:'Still deciding who'},
+  {vendor:'CMC Logistics',cat:'Logistics',status:'tbd',paid:'—',remaining:'EGP 120,000',notes:'Team to hire urgently'},
+  {vendor:'Dina — Design Agency',cat:'Decoration',status:'tbd',paid:'—',remaining:'EGP 6M+',notes:'Post 3D concept & samples visit'},
+  {vendor:'Ahmed Shafie',cat:'Hotel vendor',status:'tbd',paid:'—',remaining:'TBD',notes:'Entertainment lineup — meeting May 14'},
 ];
 
-let gFilter = 'all';
+const STATUS_LABELS={booked:'Booked ✓',deposit:'Deposit paid',tbd:'Pending / TBD'};
+const STATUS_CLASSES={booked:'done',deposit:'partial',tbd:'warn'};
 
-function setGFilter(f, btn){
-  gFilter = f;
-  document.querySelectorAll('.g-filter').forEach(b=>b.classList.remove('active'));
-  btn.classList.add('active');
-  renderGuestTable();
+function renderBookings(){
+  let booked=0,partial=0,tbd=0;
+  document.getElementById('book-tbody').innerHTML=BOOKINGS.map(b=>{
+    if(b.status==='booked') booked++;
+    else if(b.status==='deposit') partial++;
+    else tbd++;
+    return `<tr>
+      <td><strong>${b.vendor}</strong></td>
+      <td style="color:var(--muted)">${b.cat}</td>
+      <td><span class="pill ${STATUS_CLASSES[b.status]}">${STATUS_LABELS[b.status]}</span></td>
+      <td class="${b.paid!=='—'&&b.paid!=='TBD'?'money-paid':'money-tbd'}">${b.paid}</td>
+      <td class="${b.remaining!=='—'&&b.remaining!=='TBD'?'money-rem':'money-tbd'}">${b.remaining}</td>
+      <td style="font-size:12px;color:var(--muted)">${b.notes}</td>
+    </tr>`;
+  }).join('');
+  document.getElementById('b-booked').textContent=booked;
+  document.getElementById('b-partial').textContent=partial;
+  document.getElementById('b-tbd').textContent=tbd;
 }
 
-function filterGuests(){ renderGuestTable(); }
+// ── GUESTS ──
+const GUESTS=[
+  {id:'GST-IDJ767',name:'Ali Hussein',attendance:'Attending',count:4,ts:'2026-05-06'},
+  {id:'GST-I84EEV',name:'Hamis',attendance:'Attending',count:2,ts:'2026-05-06'},
+  {id:'GST-E3Z3LA',name:'Farida Wael',attendance:'Attending',count:2,ts:'2026-05-06'},
+  {id:'GST-6P8CON',name:'Hesham Kayed',attendance:'Attending',count:2,ts:'2026-05-06'},
+  {id:'GST-1RQ8VF',name:'Shahd Shabana',attendance:'Attending',count:3,ts:'2026-05-06'},
+  {id:'GST-G6EQUX',name:'Sally Abo El Seoud',attendance:'Attending',count:3,ts:'2026-05-06'},
+  {id:'GST-WS4OJV',name:'Nora ElTayer',attendance:'Attending',count:3,ts:'2026-05-06'},
+  {id:'GST-106L66',name:'Amr Amir',attendance:'Attending',count:6,ts:'2026-05-06'},
+  {id:'GST-UBU0GY',name:'Jana Arafa',attendance:'Attending',count:5,ts:'2026-05-07'},
+  {id:'GST-Z9JSPH',name:'Karim El Kabbani',attendance:'Attending',count:1,ts:'2026-05-07'},
+  {id:'GST-X3LR2A',name:'Walid Abdulaziz',attendance:'Attending',count:1,ts:'2026-05-07'},
+  {id:'GST-AQA1Y3',name:'Ezzeldeen Magdy',attendance:'Attending',count:2,ts:'2026-05-07'},
+  {id:'GST-PSB8DT',name:'Heba Nabil',attendance:'Attending',count:1,ts:'2026-05-07'},
+  {id:'GST-RUO3S9',name:'Belal El Toukhi',attendance:'Attending',count:1,ts:'2026-05-07'},
+  {id:'GST-A4MEU8',name:'Kareem Alansari',attendance:'Attending',count:1,ts:'2026-05-07'},
+  {id:'GST-Q84DU5',name:'Sarah M. Hany Osman',attendance:'Attending',count:1,ts:'2026-05-07'},
+  {id:'GST-PXI4VJ',name:'Nour Yehia',attendance:'Attending',count:2,ts:'2026-05-07'},
+  {id:'GST-S8TTVL',name:'Eatimad Shoreibah',attendance:'Attending',count:1,ts:'2026-05-07'},
+  {id:'GST-POSJHV',name:'Salah El Deen Sabry',attendance:'Attending',count:1,ts:'2026-05-07'},
+  {id:'GST-3BG5EY',name:'Youssef Elgendy',attendance:'Attending',count:1,ts:'2026-05-07'},
+  {id:'GST-RUHEW2',name:'Ashraqat Reda',attendance:'Attending',count:1,ts:'2026-05-07'},
+  {id:'GST-6AF8EI',name:'Nour Anwar Shaban',attendance:'Attending',count:1,ts:'2026-05-07'},
+  {id:'GST-ID4C1A',name:'Hala Elassal',attendance:'Attending',count:1,ts:'2026-05-08'},
+  {id:'GST-L9H179',name:'Sally Kafahir',attendance:'Attending',count:1,ts:'2026-05-08'},
+  {id:'GST-KJBWYP',name:'Julia Houhou',attendance:'Attending',count:1,ts:'2026-05-08'},
+  {id:'GST-XZ5UIO',name:'Sara Taher',attendance:'Declining',count:0,ts:'2026-05-08'},
+  {id:'GST-3U653P',name:'Karim Bolbil',attendance:'Attending',count:1,ts:'2026-05-08'},
+  {id:'GST-2ELJME',name:'Zeina Sherif',attendance:'Attending',count:1,ts:'2026-05-08'},
+  {id:'GST-WRE3BW',name:'Sally Kafshir',attendance:'Attending',count:1,ts:'2026-05-08'},
+  {id:'GST-CI6D0L',name:'Salma El Sabban',attendance:'Declining',count:0,ts:'2026-05-08'},
+  {id:'GST-MMSKTZ',name:'عمرو المغربي',attendance:'Attending',count:5,ts:'2026-05-09'},
+  {id:'GST-BDH8IY',name:'Mouafak Hasan',attendance:'Attending',count:4,ts:'2026-05-09'},
+  {id:'GST-DWVEY4',name:'George Ramsis',attendance:'Attending',count:2,ts:'2026-05-09'},
+  {id:'GST-W3RTGZ',name:'Mohamed Sobhy',attendance:'Attending',count:1,ts:'2026-05-09'},
+  {id:'GST-KYVPBV',name:'Maha Ahmed Abbas',attendance:'Attending',count:1,ts:'2026-05-09'},
+  {id:'GST-1611ST',name:'Amr Magdy Kamal',attendance:'Attending',count:3,ts:'2026-05-09'},
+  {id:'GST-QGO33R',name:'Samir Osman',attendance:'Attending',count:2,ts:'2026-05-09'},
+  {id:'GST-GMXBVR',name:'Tamer Soliman Halawa',attendance:'Attending',count:3,ts:'2026-05-09'},
+  {id:'GST-UPABN3',name:'Yousef Tarek Mohamed',attendance:'Attending',count:2,ts:'2026-05-09'},
+  {id:'GST-0ECQPD',name:'Mostafa Khaled',attendance:'Attending',count:2,ts:'2026-05-09'},
+  {id:'GST-L4FJZL',name:'Amr Alaa Shoreibah',attendance:'Attending',count:6,ts:'2026-05-09'},
+  {id:'GST-YDD97K',name:'Mohamed Sobhy',attendance:'Attending',count:8,ts:'2026-05-09'},
+  {id:'GST-LTCN4S',name:'Joudi Mansour',attendance:'Attending',count:1,ts:'2026-05-10'},
+  {id:'GST-WESYOE',name:'Zeinab Shoreibah',attendance:'Attending',count:1,ts:'2026-05-10'},
+  {id:'GST-0Y6E0I',name:'Serene Ayas',attendance:'Attending',count:2,ts:'2026-05-10'},
+  {id:'GST-XJE8UK',name:'Amr Elmgrabey',attendance:'Attending',count:2,ts:'2026-05-10'},
+  {id:'GST-Q37TMD',name:'Mohamed Galal Shoreibah',attendance:'Attending',count:5,ts:'2026-05-10'},
+  {id:'GST-T9CPCY',name:'Serene Taher',attendance:'Declining',count:0,ts:'2026-05-11'},
+  {id:'GST-FC0C5I',name:'Nina Kabbany',attendance:'Attending',count:3,ts:'2026-05-12'},
+];
 
+let gFilter='all';
+function setGFilter(f,btn){gFilter=f;document.querySelectorAll('.g-filter').forEach(b=>b.classList.remove('active'));btn.classList.add('active');renderGuestTable();}
+function filterGuests(){renderGuestTable();}
 function renderGuestTable(){
-  const q = document.getElementById('g-search').value.toLowerCase();
-  let rows = GUESTS.filter(g => {
-    if(q && !g.name.toLowerCase().includes(q) && !g.id.toLowerCase().includes(q)) return false;
-    if(gFilter==='attending') return g.attendance==='Attending' && !g.flags.includes('test');
+  const q=document.getElementById('g-search').value.toLowerCase();
+  const rows=GUESTS.filter(g=>{
+    if(q&&!g.name.toLowerCase().includes(q)&&!g.id.toLowerCase().includes(q)) return false;
+    if(gFilter==='attending') return g.attendance==='Attending';
     if(gFilter==='declining') return g.attendance==='Declining';
-    if(gFilter==='flagged') return g.flags.length > 0;
     return true;
   });
-  const tbody = document.getElementById('guest-tbody');
-  document.getElementById('g-count-row').textContent = `Showing ${rows.length} of ${GUESTS.length} entries`;
-  tbody.innerHTML = rows.map((g,i) => {
-    const att = g.attendance === 'Attending';
-    const flagHtml = g.flags.map(f =>
-      f==='test' ? '<span class="flag flag-test">Test</span>' :
-      f==='dup'  ? '<span class="flag flag-dup">Check dup</span>' : ''
-    ).join('');
+  document.getElementById('g-count-row').textContent=`Showing ${rows.length} of ${GUESTS.length} entries`;
+  document.getElementById('guest-tbody').innerHTML=rows.map((g,i)=>{
+    const att=g.attendance==='Attending';
     return `<tr>
       <td style="color:var(--muted)">${i+1}</td>
-      <td><strong>${g.name}</strong>${flagHtml}</td>
+      <td><strong>${g.name}</strong></td>
       <td><span class="status-dot ${att?'dot-att':'dot-dec'}"></span>${g.attendance}</td>
       <td><span class="num-badge ${g.count>=4?'big':''}">${g.count||'—'}</span></td>
       <td style="color:var(--muted)">${g.ts}</td>
@@ -338,107 +412,91 @@ function renderGuestTable(){
   }).join('');
 }
 
-// ── CHECKLIST DATA ──
-const CL_DATA = [
+// ── CHECKLIST ──
+const CL_DATA=[
   {id:'venue',icon:'🏛️',title:'Venue & date',items:[
-    {id:'v1',name:'Confirm venue booking — Nile Plaza Hall, Four Seasons',sub:'July 4th, 2026',tags:[]},
-    {id:'v2',name:'Confirm guest capacity — 400 PAX seated',sub:'Layout option to be finalized',tags:['decision']},
-    {id:'v3',name:'Confirm layout option',sub:'Option 1: 400 PAX all low seated · Option 2: 270 low + 130 high seated',tags:['decision']},
+    {id:'v1',name:'Confirm venue booking — Nile Plaza Hall, Four Seasons',sub:'July 4th, 2026',tags:[],pre:true},
+    {id:'v2',name:'Confirm layout option',sub:'Layout finalized ✓',tags:[],pre:true},
     {id:'v4',name:'Conduct site visit with decorator',sub:'Required before finalizing entrance design & measurements',tags:[]},
-    {id:'v5',name:'Z Team seating — 8 PAX',sub:'Dedicated table confirmed in layout',tags:[]},
   ]},
   {id:'concept',icon:'🎨',title:'Wedding concept',items:[
     {id:'c1',name:'Select main concept',sub:'✓ Concept 1: Dreamy Heaven selected',tags:[],pre:true},
-    {id:'c2',name:'Confirm color palette',sub:'Warm Beige · Soft Ivory · Blush Nude · Dusty Rose · Champagne Gold',tags:[]},
+    {id:'c2',name:'Confirm color palette',sub:'Warm Beige · Soft Ivory · Blush Nude · Dusty Rose · Champagne Gold',tags:[],pre:true},
+    {id:'c3',name:'Receive 3D concept',sub:'Expected ~May 17',tags:[]},
+    {id:'c4',name:'Visit production house',sub:'After 3D concept — quality, finish, flowers & all details',tags:[]},
   ]},
-  {id:'zaffa',icon:'🎶',title:'Zaffa',items:[
-    {id:'z1',name:'Select before-dinner Zaffa',sub:'Elegant Oriental Zaffa + DJ Yara Tarek',price:'EGP 13,200',tags:['decision']},
-    {id:'z2',name:'Select after-dinner Zaffa',sub:'Lebanese Zaffa + DJ Ahmed Saad',price:'EGP 16,500',tags:['decision']},
-    {id:'z3',name:'Confirm Zaffa vendor booking & deposit',tags:[]},
+  {id:'meetings',icon:'📅',title:'Upcoming meetings',items:[
+    {id:'m1',name:'Hotel meeting — Dina (Design Agency)',sub:'Thu May 14, 1:00 PM · Hall design & decor details',tags:[]},
+    {id:'m2',name:'Hotel meeting — Ahmed Shafie (Wedding Vendor)',sub:'Thu May 14, 3:00 PM · Entertainment & vendor details',tags:[]},
+    {id:'m3',name:'Client meeting — Maha & Hossam',sub:'Thu May 14, 5:00 PM · Final approvals · setup day confirmation',tags:[]},
+    {id:'m4',name:'Lights meeting with design team',sub:'To be scheduled after hotel meeting',tags:[]},
+  ]},
+  {id:'zaffa',icon:'🎶',title:'Zaffa & singers',items:[
+    {id:'z1',name:'Zaffa — confirm vendor & details',sub:'Timing, coordination with DJ',tags:[]},
+    {id:'z2',name:'Ahmed Saad — booked, 50% deposit paid',sub:'Singer · own performance slot',tags:[],pre:true},
+    {id:'z3',name:'Pay remaining 50% — Ahmed Saad',tags:[]},
   ]},
   {id:'dj',icon:'🎧',title:'DJ',items:[
-    {id:'d1',name:'Select DJ',sub:'Option A: Khaled Mamdouh · B: Khaled Hussein · C: Bassem Nagy · D: Kiro Adel',tags:['decision']},
-    {id:'d2',name:'Confirm DJ booking & contract',tags:[]},
-    {id:'d3',name:'Share music preferences & playlist with DJ',tags:[]},
-    {id:'d4',name:'Confirm DJ equipment requirements with venue',tags:[]},
+    {id:'d1',name:'DJ Bassem Nagy — booked ✓',sub:'Contract confirmed',tags:[],pre:true},
+    {id:'d2',name:'Share music preferences & playlist with DJ',tags:[]},
+    {id:'d3',name:'Confirm DJ equipment requirements with venue',tags:[]},
   ]},
   {id:'entertainment',icon:'⭐',title:'Entertainment — Carolina Karam',items:[
-    {id:'e1',name:'Select Carolina Karam package',sub:'Solo · With dancers',tags:['decision']},
-    {id:'e2',name:'Book Carolina Karam — solo',price:'USD 10,000',tags:['optional']},
-    {id:'e3',name:'Book Carolina Karam — with dancers',price:'USD 12,000',tags:['optional']},
-    {id:'e4',name:'Confirm contract & performance schedule',tags:[]},
+    {id:'e1',name:'Carolina Karam — booked, 50% deposit paid',sub:'Package details to confirm after final concept',tags:[],pre:true},
+    {id:'e2',name:'Finalize package — solo vs. with dancers',sub:'Solo: USD 10,000 · With dancers: USD 12,000',price:'USD 10–12k',tags:['decision']},
+    {id:'e3',name:'Pay remaining 50% — Carolina Karam',tags:[]},
+    {id:'e4',name:'Confirm performance schedule & contract details',tags:[]},
+    {id:'e5',name:'Entertainment extras',sub:'To finalize after final concept confirmed',tags:['discussion']},
   ]},
-  {id:'entrance',icon:'🚪',title:'Guest entrance design',items:[
-    {id:'ge1',name:'Select guest entrance option',sub:'Option 1: Draped passage + sphere lighting + violinists · Option 2: Floral walls',tags:['decision']},
-    {id:'ge2',name:'Finalize entrance dimensions after site visit',sub:'Welcome sign: fabric 3m x 1m',tags:[]},
+  {id:'decor',icon:'✨',title:'Decor & design',items:[
+    {id:'ge1',name:'Guest entrance option',sub:'Layout done — entrance design confirmed',tags:[],pre:true},
     {id:'ge3',name:'Confirm live violinists for entrance',tags:['optional']},
-    {id:'ge4',name:'Seating chart design & print on fabric',sub:'5 columns at different heights',tags:[]},
-  ]},
-  {id:'ceiling',icon:'🏗️',title:'Ceiling & walls',items:[
-    {id:'cl1',name:'Select ceiling style',sub:'Option 1: Soft draped ivory canopy + sphere lights · Option 2: Wave form · Option 3: Sculptural foam',tags:['decision']},
-    {id:'cl3',name:'Confirm hall side wall draping',sub:'Soft-waved beige drapery',price:'EGP 72,000',tags:[]},
-  ]},
-  {id:'bridal',icon:'💍',title:'Bridal stage',items:[
-    {id:'bs1',name:'Select bridal stage design',sub:'Option 1: Ivory columns + blush florals · Option 2: Layered platforms · Option 3: Illuminated contour layers',tags:['decision']},
-    {id:'bs2',name:'Confirm stage dimensions — 14m x 3m + catwalk',price:'EGP 32,400',tags:[]},
-    {id:'bs3',name:'Bridal entrance backdrop — 14m x 3.5m with T&A initials',price:'EGP 96,000',tags:[]},
-    {id:'bs4',name:'Printed dancefloor & catwalk banner',price:'EGP 20,400',tags:[]},
-  ]},
-  {id:'seating',icon:'🪑',title:'Seating & furniture',items:[
-    {id:'st2',name:'2 large low Polo tables (24 PAX each)',price:'EGP 19,200',tags:[]},
-    {id:'st3',name:'362 low chairs',sub:'Color to confirm: beige / gold / black',price:'EGP 108,600',tags:['decision']},
-    {id:'st4',name:'10 low rectangular tables',price:'EGP 18,000',tags:[]},
-    {id:'st5',name:'22 low oval tables (8 PAX each)',price:'EGP 39,600',tags:[]},
-    {id:'st6',name:'5 low round tables (10 PAX each)',price:'EGP 9,000',tags:[]},
-    {id:'st7',name:'6 high round tables (4 PAX each)',price:'EGP 10,800',tags:[]},
-  ]},
-  {id:'centerpieces',icon:'🌸',title:'Centerpieces & florals',items:[
-    {id:'cp1',name:'Polo table centerpieces x2',price:'EGP 43,200',tags:[]},
-    {id:'cp2',name:'Rectangular table centerpieces x32',price:'EGP 172,800',tags:[]},
-    {id:'cp3',name:'Round table centerpieces x11',price:'EGP 36,960',tags:[]},
-    {id:'cp4',name:'Mix & match additional centerpiece designs',tags:['decision']},
+    {id:'cl1',name:'Ceiling & wall style',sub:'Concept selected — awaiting 3D to confirm details',tags:[],pre:true},
+    {id:'bs1',name:'Bridal stage design',sub:'Concept selected — details in 3D phase',tags:[],pre:true},
   ]},
   {id:'invitation',icon:'✉️',title:'Digital invitation',items:[
-    {id:'inv1',name:'Select invitation illustration concept',sub:'The Royal Palace — narrative view or scenic view',tags:['decision']},
-    {id:'inv2',name:'Finalize invitation content',sub:'Names · Date · Venue · Countdown · RSVP · Music',tags:[]},
-    {id:'inv3',name:'Confirm digital invitation package',price:'EGP 10,000',tags:[]},
-    {id:'inv4',name:'Provide final guest list for QR code generation',tags:[]},
-    {id:'inv5',name:'Approve & send digital invitations',tags:[]},
+    {id:'inv1',name:'Invitation designed & sent ✓',sub:'Guests are registering now',tags:[],pre:true},
+    {id:'inv2',name:'Guest list updates — weekly',sub:'Sent every week to track new RSVPs',tags:[]},
+    {id:'inv3',name:'Assign seating for each guest & update QR accordingly',sub:'To be locked before event',tags:[]},
   ]},
-  {id:'photography',icon:'📷',title:'Photography & video',items:[
-    {id:'ph1',name:'Book Hussein Abdelkader — full coverage',sub:'4 photographers · crane · 3 reels',price:'EGP 110,000',tags:[]},
-    {id:'ph2',name:'Confirm photographer availability',tags:[]},
-    {id:'ph3',name:'Pre-wedding photoshoot',price:'EGP 11,000–16,500',tags:['optional']},
-    {id:'ph4',name:'Photo booth — unlimited prints',price:'EGP 16,500',tags:['optional']},
-    {id:'ph5',name:'360 camera',price:'EGP 11,000',tags:['optional']},
-    {id:'ph6',name:'Confirm call sheet & shot list',tags:[]},
+  {id:'photography',icon:'📷',title:'Photography & cinema',items:[
+    {id:'ph1',name:'Hussein Abdelkader — full coverage confirmed',sub:'4 photographers · crane · 3 reels',price:'EGP 110,000',tags:[]},
+    {id:'ph2',name:'Finalize payment schedule — Hussein Abdelkader',sub:'Payment timing + delivery dates',tags:[]},
+    {id:'ph3',name:'Cinema photography — select who',sub:'Exploring options',tags:['decision']},
+    {id:'ph4',name:'Coordinate Hussein & cinema photographer',sub:'Ensure harmony, no conflicts on the day',tags:[]},
+    {id:'ph5',name:'Pre-wedding photoshoot',price:'EGP 11,000–16,500',tags:['optional']},
+    {id:'ph6',name:'Photo booth — unlimited prints',price:'EGP 16,500',tags:['optional']},
+    {id:'ph7',name:'360 camera',price:'EGP 11,000',tags:['optional']},
   ]},
   {id:'logistics',icon:'🚚',title:'Logistics & coordination',items:[
-    {id:'lg1',name:'Book CMC wedding logistics management',price:'EGP 100,000',tags:[]},
-    {id:'lg2',name:'Finalize vendor timeline & run-of-show',tags:[]},
-    {id:'lg3',name:'Confirm transportation for decoration setup',price:'EGP 96,000',tags:[]},
-    {id:'lg4',name:'Guest entrance & registration process',tags:[]},
-    {id:'lg5',name:'Bridal party schedule & movement plan',tags:[]},
+    {id:'lg1',name:'Book CMC logistics management',price:'EGP 100,000',tags:[]},
+    {id:'lg2',name:'Hire on-ground logistics team (URGENT)',sub:'Needed early — handle seating, client, supervisors & follow-ups',tags:[]},
+    {id:'lg3',name:'Confirm extra setup day',sub:'Thu night deliver → Fri setup → Sat event · awaiting Hossam & Maha approval',tags:[]},
+    {id:'lg4',name:'Finalize vendor timeline & run-of-show',tags:[]},
+    {id:'lg5',name:'Confirm transportation for decoration setup',price:'EGP 96,000',tags:[]},
+    {id:'lg6',name:'Guest entrance & registration process',tags:[]},
+    {id:'lg7',name:'Bridal party schedule & movement plan',tags:[]},
   ]},
   {id:'budget',icon:'💰',title:'Contracts & payments',items:[
-    {id:'bg4',name:'Sign all vendor contracts',sub:'Zaffa · DJ · Entertainment · Decoration · Photography · Logistics',tags:[]},
-    {id:'bg5',name:'Confirm payment schedule & deposits',tags:[]},
-    {id:'bg6',name:'CMC management fees agreed (20%)',tags:[]},
+    {id:'bg1',name:'Culinary quotation — finalize',sub:'Shared, in discussion — post hotel meeting',tags:[]},
+    {id:'bg2',name:'Sign remaining vendor contracts',sub:'Entertainment · Decoration · Photography · Logistics',tags:[]},
+    {id:'bg3',name:'Confirm payment schedule & remaining deposits',sub:'Carolina Karam 50% · Ahmed Saad 50% · others',tags:[]},
+    {id:'bg4',name:'CMC management fees agreed (20%)',tags:[]},
   ]},
 ];
 
-let clState = {};
-CL_DATA.forEach(s => s.items.forEach(it => { clState[it.id] = it.pre||false; }));
-try{ const sv=localStorage.getItem('at_v3'); if(sv) clState={...clState,...JSON.parse(sv)}; }catch(e){}
-let clFilter = 'all';
-function saveState(){ try{localStorage.setItem('at_v3',JSON.stringify(clState));}catch(e){} }
+let clState={};
+CL_DATA.forEach(s=>s.items.forEach(it=>{clState[it.id]=it.pre||false;}));
+try{const sv=localStorage.getItem('at_v5');if(sv)clState={...clState,...JSON.parse(sv)};}catch(e){}
+let clFilter='all';
+function saveState(){try{localStorage.setItem('at_v5',JSON.stringify(clState));}catch(e){}}
 
 function renderChecklist(){
-  const cont = document.getElementById('cl-sections');
-  cont.innerHTML = '';
+  const cont=document.getElementById('cl-sections');
+  cont.innerHTML='';
   let td=0,ta=0,dp=0;
   CL_DATA.forEach(sec=>{
-    const filtered = sec.items.filter(it=>{
+    const filtered=sec.items.filter(it=>{
       if(clFilter==='all') return true;
       if(clFilter==='pending') return !clState[it.id];
       if(clFilter==='done') return clState[it.id];
@@ -447,8 +505,8 @@ function renderChecklist(){
       return true;
     });
     if(!filtered.length) return;
-    const done=sec.items.filter(i=>clState[i.id]).length, tot=sec.items.length;
-    td+=done; ta+=tot;
+    const done=sec.items.filter(i=>clState[i.id]).length,tot=sec.items.length;
+    td+=done;ta+=tot;
     const pct=Math.round(done/tot*100);
     const bc=done===tot?'done':done>0?'partial':'';
     const el=document.createElement('div');
@@ -469,7 +527,8 @@ function renderChecklist(){
               <div class="cl-item-content">
                 <div class="cl-item-name ${clState[it.id]?'checked':''}">${it.name}</div>
                 ${it.sub?`<div class="cl-item-sub">${it.sub}</div>`:''}
-                ${it.tags.length?`<div class="cl-tags">${it.tags.map(t=>`<span class="${t==='decision'?'tag-d':'tag-o'}">${t==='decision'?'Decision needed':'Optional'}</span>`).join('')}</div>`:''}
+                ${it.tags.filter(t=>t!=='discussion').length?`<div class="cl-tags">${it.tags.filter(t=>t!=='discussion').map(t=>`<span class="${t==='decision'?'tag-d':'tag-o'}">${t==='decision'?'Decision needed':'Optional'}</span>`).join('')}</div>`:''}
+                ${it.tags.includes('discussion')?`<div class="cl-tags"><span class="tag-p">In discussion</span></div>`:''}
               </div>
             </label>
             ${it.price?`<div class="cl-price">${it.price}</div>`:''}
@@ -497,14 +556,14 @@ function renderDecisions(){
 }
 
 function toggleItem(id,secId){
-  clState[id]=!clState[id]; saveState();
+  clState[id]=!clState[id];saveState();
   document.querySelector('#clit-'+id+' .cl-item-name').classList.toggle('checked',clState[id]);
   const sec=CL_DATA.find(s=>s.id===secId);
-  const done=sec.items.filter(i=>clState[i.id]).length, pct=Math.round(done/sec.items.length*100);
+  const done=sec.items.filter(i=>clState[i.id]).length,pct=Math.round(done/sec.items.length*100);
   const fill=document.getElementById('clprog-'+secId);
   if(fill) fill.style.width=pct+'%';
   const badge=document.getElementById('clbadge-'+secId);
-  if(badge){const bc=done===sec.items.length?'done':done>0?'partial':''; badge.className='cl-badge '+bc; badge.textContent=done+'/'+sec.items.length;}
+  if(badge){const bc=done===sec.items.length?'done':done>0?'partial':'';badge.className='cl-badge '+bc;badge.textContent=done+'/'+sec.items.length;}
   let td=0,ta=0,dp=0;
   CL_DATA.forEach(s=>{s.items.forEach(i=>{ta++;if(clState[i.id])td++;if(i.tags.includes('decision')&&!clState[i.id])dp++;});});
   document.getElementById('dash-done').textContent=Math.round(td/ta*100)+'%';
@@ -513,7 +572,7 @@ function toggleItem(id,secId){
 }
 
 function toggleCL(id){
-  const body=document.getElementById('clbody-'+id), chev=document.getElementById('clchev-'+id);
+  const body=document.getElementById('clbody-'+id),chev=document.getElementById('clchev-'+id);
   if(!body) return;
   const open=body.style.display!=='none';
   body.style.display=open?'none':'block';
@@ -534,6 +593,7 @@ function goTo(page,btn){
   btn.classList.add('active');
 }
 
+renderBookings();
 renderGuestTable();
 renderChecklist();
 </script>
