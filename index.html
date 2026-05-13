@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="ar" dir="ltr">
+<html lang="en" dir="ltr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>Ahmed & Tahany — Wedding HQ</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
@@ -12,272 +12,285 @@
   --amber:#b08060;--amber-bg:#f5e8d8;--amber-text:#7a4e2a;
   --red:#c0392b;--red-bg:#fde8e6;--blue:#8a7060;--blue-bg:#EAD0D2;
   --gold:#b8962e;--gold-bg:#f7efe0;--purple:#9a7080;--purple-bg:#f5eaed;
-  --beige:#E8DCCF;--blush:#F2C3C2;--sand:#DCCEBB;--rose:#EAD0D2;--cream:#FFF5F2;
+  --nav-h:52px;--bottom-h:56px;
 }
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--ink);min-height:100vh}
-.nav{background:#3a2e2e;color:#FFF5F2;display:flex;align-items:center;justify-content:space-between;padding:0 20px;height:52px;position:sticky;top:0;z-index:200}
-.nav-brand{font-size:14px;font-weight:500}
+html,body{height:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--ink)}
+
+/* ── NAV (top, desktop/tablet) ── */
+.top-nav{background:#3a2e2e;color:#FFF5F2;display:flex;align-items:center;justify-content:space-between;padding:0 20px;height:var(--nav-h);position:sticky;top:0;z-index:200}
+.nav-brand{font-size:14px;font-weight:600;white-space:nowrap}
 .nav-brand span{color:#E8DCCF}
-.nav-tabs{display:flex;gap:2px}
-.nav-tab{font-size:13px;padding:6px 14px;border-radius:6px;cursor:pointer;color:#c9b8b0;background:transparent;border:none;font-family:inherit;transition:all .15s}
-.nav-tab:hover{color:#FFF5F2}
-.nav-tab.active{background:#5a4a4a;color:#FFF5F2}
-.concept-badge{font-size:11px;background:#E8DCCF22;color:#E8DCCF;border:1px solid #E8DCCF55;border-radius:999px;padding:3px 12px}
-.page{display:none;padding:20px 18px 60px;max-width:1000px;margin:0 auto}
+.top-nav .tabs{display:flex;gap:2px}
+.top-nav .tab{font-size:13px;padding:6px 14px;border-radius:6px;cursor:pointer;color:#c9b8b0;background:transparent;border:none;font-family:inherit;transition:all .15s;white-space:nowrap}
+.top-nav .tab:hover{color:#FFF5F2}
+.top-nav .tab.active{background:#5a4a4a;color:#FFF5F2}
+.concept-badge{font-size:11px;background:#E8DCCF22;color:#E8DCCF;border:1px solid #E8DCCF55;border-radius:999px;padding:3px 12px;white-space:nowrap;flex-shrink:0}
+
+/* ── BOTTOM NAV (mobile only) ── */
+.bottom-nav{display:none;position:fixed;bottom:0;left:0;right:0;height:var(--bottom-h);background:#3a2e2e;z-index:200;border-top:1px solid #5a4a4a}
+.bottom-nav .tabs{display:flex;height:100%;justify-content:center;gap:0}
+.bottom-nav .tab{flex:0 0 auto;width:90px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:500;color:#c9b8b0;border:none;border-top:2px solid transparent;background:transparent;cursor:pointer;font-family:inherit;transition:all .15s;padding:0}
+.bottom-nav .tab.active{color:#FFF5F2;border-top-color:#E8DCCF}
+.bottom-nav .tab .icon{display:none}
+.bottom-nav .tab .label{font-size:13px}
+
+/* ── PAGE WRAPPER ── */
+.page{display:none;padding:16px 16px 72px;max-width:1000px;margin:0 auto}
 .page.active{display:block}
 
+/* ── KPI GRID ── */
 .kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:14px}
-.kpi{background:var(--card);border:.5px solid var(--border);border-radius:10px;padding:14px 16px}
-.kpi-label{font-size:11px;color:var(--muted);margin-bottom:5px}
-.kpi-val{font-size:24px;font-weight:700}
+.kpi{background:var(--card);border:.5px solid var(--border);border-radius:10px;padding:14px 14px}
+.kpi-label{font-size:11px;color:var(--muted);margin-bottom:4px}
+.kpi-val{font-size:22px;font-weight:700;line-height:1.2}
 .kpi-val.g{color:var(--green)}.kpi-val.a{color:var(--amber)}.kpi-val.gold{color:var(--gold)}.kpi-val.r{color:var(--red)}
 
-.concept-card{background:linear-gradient(135deg,#3a2e2e,#5a4040);border-radius:12px;padding:18px 22px;color:#FFF5F2;margin-bottom:14px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+/* ── CONCEPT CARD ── */
+.concept-card{background:linear-gradient(135deg,#3a2e2e,#5a4040);border-radius:12px;padding:16px 20px;color:#FFF5F2;margin-bottom:14px}
 .concept-card h3{font-size:14px;font-weight:500;margin-bottom:4px}
-.concept-card p{font-size:12px;color:#E8DCCF;line-height:1.6}
-.concept-check{background:#E8DCCF22;border:1px solid #E8DCCF66;color:#E8DCCF;font-size:12px;padding:4px 14px;border-radius:999px;white-space:nowrap;flex-shrink:0}
+.concept-card p{font-size:12px;color:#E8DCCF;line-height:1.7}
+.concept-card .row{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.concept-check{background:#E8DCCF22;border:1px solid #E8DCCF66;color:#E8DCCF;font-size:11px;padding:4px 12px;border-radius:999px;white-space:nowrap;flex-shrink:0;margin-top:2px}
 
-.meeting-card{background:#f9efec;border:.5px solid var(--border);border-radius:12px;padding:16px 18px;margin-bottom:14px}
+/* ── MEETING CARD ── */
+.meeting-card{background:#f9efec;border:.5px solid var(--border);border-radius:12px;padding:14px 16px;margin-bottom:14px}
 .meeting-card h4{font-size:13px;font-weight:600;color:#8a5a50;margin-bottom:10px}
-.meeting-slot{display:flex;align-items:flex-start;gap:12px;padding:8px 0;border-bottom:.5px solid #E8DCCF}
+.meeting-slot{display:flex;gap:12px;padding:8px 0;border-bottom:.5px solid #E8DCCF}
 .meeting-slot:last-child{border-bottom:none}
-.meeting-time{font-size:13px;font-weight:700;color:#a0756e;min-width:48px;flex-shrink:0}
-.meeting-info{flex:1}
+.meeting-time{font-size:13px;font-weight:700;color:#a0756e;min-width:52px;flex-shrink:0;padding-top:1px}
 .meeting-name{font-size:13px;font-weight:500}
-.meeting-sub{font-size:12px;color:var(--muted);margin-top:2px}
+.meeting-sub{font-size:12px;color:var(--muted);margin-top:2px;line-height:1.5}
 
-.two-col{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
-.card{background:var(--card);border:.5px solid var(--border);border-radius:12px;padding:16px 18px}
+/* ── CARD ── */
+.card{background:var(--card);border:.5px solid var(--border);border-radius:12px;padding:14px 16px;margin-bottom:14px}
 .card h4{font-size:13px;font-weight:600;margin-bottom:12px}
-.status-row{display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-bottom:.5px solid var(--border);font-size:13px;gap:8px}
-.status-row:last-child{border-bottom:none}
-.sr-text{flex:1}
+
+/* ── STATUS GRID ── */
+.status-grid{display:grid;grid-template-columns:1fr 1fr;gap:0}
+.sr{display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-bottom:.5px solid var(--border);font-size:13px;gap:8px}
+.sr:nth-child(odd){padding-right:14px}
+.sr:nth-child(even){padding-left:14px;border-left:.5px solid var(--border)}
+.sr:nth-last-child(-n+2){border-bottom:none}
+.sr-text{flex:1;min-width:0}
 .sr-sub{font-size:11px;color:var(--muted);margin-top:2px}
-.pill{font-size:11px;padding:3px 10px;border-radius:999px;font-weight:500;white-space:nowrap;flex-shrink:0}
+.pill{font-size:11px;padding:3px 9px;border-radius:999px;font-weight:500;white-space:nowrap;flex-shrink:0}
 .pill.done{background:var(--green-bg);color:var(--green-text)}
 .pill.pending{background:var(--amber-bg);color:var(--amber-text)}
 .pill.partial{background:var(--purple-bg);color:var(--purple)}
 .pill.discussion{background:var(--blue-bg);color:var(--blue)}
 .pill.warn{background:var(--red-bg);color:var(--red)}
-.pill.na{background:#f0ebe8;color:#999}
 
-/* BOOKINGS TABLE */
-.book-table{width:100%;border-collapse:collapse}
-.book-table th{font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;padding:8px 12px;text-align:left;border-bottom:.5px solid var(--border);background:#faf7f5}
+/* ── FOLLOW-UP LEVELS ── */
+.levels{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding-top:4px}
+.level{background:#faf7f5;border:.5px solid var(--border);border-radius:10px;padding:12px 14px}
+.level-num{font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px}
+.level p{font-size:13px;line-height:1.6}
+
+/* ── BOOKINGS TABLE ── */
+.tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:12px;border:.5px solid var(--border)}
+.book-table{width:100%;border-collapse:collapse;min-width:560px}
+.book-table th{font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;padding:9px 12px;text-align:left;border-bottom:.5px solid var(--border);background:#faf7f5;white-space:nowrap}
 .book-table td{font-size:13px;padding:10px 12px;border-bottom:.5px solid #f0ebe8;vertical-align:middle}
 .book-table tr:last-child td{border-bottom:none}
-.book-table tr:hover td{background:#fdf9f7}
+.book-table tbody tr:hover td{background:#fdf9f7}
 .money-paid{color:var(--green-text);font-weight:600}
 .money-rem{color:var(--amber-text);font-weight:600}
 .money-tbd{color:var(--muted)}
 
-.dec-item{display:flex;align-items:flex-start;gap:9px;padding:8px 0;border-bottom:.5px solid var(--border)}
-.dec-item:last-child{border-bottom:none}
-.dec-dot{width:7px;height:7px;border-radius:50%;background:var(--amber);flex-shrink:0;margin-top:5px}
-.dec-dot.done{background:var(--green)}
-.dec-text{font-size:13px;flex:1;line-height:1.4}
-.dec-tag{font-size:11px;padding:2px 8px;border-radius:999px;background:var(--amber-bg);color:var(--amber-text);white-space:nowrap}
-.dec-tag.done{background:var(--green-bg);color:var(--green-text)}
-
-/* GUESTS */
-.g-controls{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap;align-items:center}
-.g-search{flex:1;min-width:180px;font-size:13px;padding:7px 12px;border:1px solid var(--border);border-radius:8px;background:var(--card);font-family:inherit;outline:none}
+/* ── GUEST TABLE ── */
+.g-controls{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap;align-items:center}
+.g-search{flex:1;min-width:140px;font-size:13px;padding:7px 12px;border:1px solid var(--border);border-radius:8px;background:var(--card);font-family:inherit;outline:none;-webkit-appearance:none}
 .g-search:focus{border-color:#a0756e}
-.g-filter{font-size:12px;padding:6px 14px;border-radius:999px;border:1px solid var(--border);background:var(--card);color:#7a6060;cursor:pointer;font-family:inherit;transition:all .15s}
-.g-filter:hover{border-color:#a0756e}
+.g-filter{font-size:12px;padding:6px 12px;border-radius:999px;border:1px solid var(--border);background:var(--card);color:#7a6060;cursor:pointer;font-family:inherit;transition:all .15s;white-space:nowrap}
 .g-filter.active{background:#3a2e2e;color:#FFF5F2;border-color:#3a2e2e}
-.guest-table{width:100%;border-collapse:collapse;background:var(--card);border-radius:12px;overflow:hidden;border:.5px solid var(--border)}
-.guest-table th{font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;padding:9px 14px;text-align:left;border-bottom:.5px solid var(--border);background:#faf7f5;white-space:nowrap}
-.guest-table td{font-size:13px;padding:9px 14px;border-bottom:.5px solid #f0ebe8;vertical-align:middle}
+.g-count{font-size:12px;color:var(--muted);margin-bottom:8px}
+.guest-table{width:100%;border-collapse:collapse;min-width:480px}
+.guest-table th{font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;padding:9px 12px;text-align:left;border-bottom:.5px solid var(--border);background:#faf7f5;white-space:nowrap}
+.guest-table td{font-size:13px;padding:9px 12px;border-bottom:.5px solid #f0ebe8;vertical-align:middle}
 .guest-table tr:last-child td{border-bottom:none}
 .guest-table tbody tr:hover td{background:#fdf9f7}
 .num-badge{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:6px;font-weight:700;font-size:13px;background:#f0ebe8}
 .num-badge.big{background:var(--green-bg);color:var(--green-text)}
-.status-dot{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:6px}
+.sdot{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:5px;vertical-align:middle}
 .dot-att{background:#a0756e}.dot-dec{background:var(--red)}
-.g-count-row{font-size:12px;color:var(--muted);margin-bottom:8px}
 
-/* CHECKLIST */
-.cl-filter{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap}
-.cl-btn{font-size:12px;padding:6px 14px;border-radius:999px;border:1px solid var(--border);background:var(--card);color:#7a6060;cursor:pointer;font-family:inherit;transition:all .15s}
-.cl-btn:hover{border-color:#a0756e}
+/* ── CHECKLIST ── */
+.cl-filter{display:flex;gap:6px;margin-bottom:12px;flex-wrap:wrap}
+.cl-btn{font-size:12px;padding:6px 12px;border-radius:999px;border:1px solid var(--border);background:var(--card);color:#7a6060;cursor:pointer;font-family:inherit;transition:all .15s;white-space:nowrap}
 .cl-btn.active{background:#3a2e2e;color:#FFF5F2;border-color:#3a2e2e}
-.cl-section{background:var(--card);border:.5px solid var(--border);border-radius:12px;margin-bottom:10px;overflow:hidden}
-.cl-head{display:flex;align-items:center;gap:10px;padding:13px 16px;cursor:pointer;transition:background .1s}
-.cl-head:hover{background:#fdf9f7}
-.cl-icon{font-size:16px;width:20px;text-align:center}
+.cl-sec{background:var(--card);border:.5px solid var(--border);border-radius:12px;margin-bottom:10px;overflow:hidden}
+.cl-head{display:flex;align-items:center;gap:10px;padding:12px 14px;cursor:pointer;transition:background .1s;-webkit-tap-highlight-color:transparent}
+.cl-head:active{background:#fdf9f7}
+.cl-icon{font-size:15px;width:20px;text-align:center;flex-shrink:0}
 .cl-title{font-size:14px;font-weight:500;flex:1}
-.cl-badge{font-size:11px;padding:3px 10px;border-radius:999px;background:#f0ebe8;color:#9a8070}
+.cl-badge{font-size:11px;padding:3px 9px;border-radius:999px;background:#f0ebe8;color:#9a8070;flex-shrink:0}
 .cl-badge.done{background:var(--green-bg);color:var(--green-text)}
 .cl-badge.partial{background:var(--amber-bg);color:var(--amber-text)}
-.chevron{color:#c9b0a8;transition:transform .2s;font-size:15px}
-.chevron.open{transform:rotate(180deg)}
+.chev{color:#c9b0a8;transition:transform .2s;font-size:14px;flex-shrink:0}
+.chev.open{transform:rotate(180deg)}
 .prog-track{height:3px;background:#f0ebe8}
 .prog-fill{height:100%;background:#a0756e;transition:width .3s}
-.cl-item{display:flex;align-items:flex-start;gap:11px;padding:10px 16px;border-bottom:.5px solid #f7f2f0}
+.cl-item{display:flex;align-items:flex-start;gap:10px;padding:10px 14px;border-bottom:.5px solid #f7f2f0}
 .cl-item:last-child{border-bottom:none}
-.cl-item label{display:flex;align-items:flex-start;gap:10px;cursor:pointer;flex:1}
-.cl-item input[type=checkbox]{margin-top:2px;width:15px;height:15px;flex-shrink:0;cursor:pointer;accent-color:#a0756e}
-.cl-item-content{flex:1}
-.cl-item-name{font-size:13px;color:var(--ink);line-height:1.45}
-.cl-item-name.checked{text-decoration:line-through;color:#c9b0a8}
-.cl-item-sub{font-size:12px;color:var(--muted);margin-top:3px;line-height:1.5}
+.cl-item label{display:flex;align-items:flex-start;gap:10px;cursor:pointer;flex:1;-webkit-tap-highlight-color:transparent}
+.cl-item input[type=checkbox]{margin-top:2px;width:16px;height:16px;flex-shrink:0;cursor:pointer;accent-color:#a0756e}
+.cl-name{font-size:13px;color:var(--ink);line-height:1.45}
+.cl-name.checked{text-decoration:line-through;color:#c9b0a8}
+.cl-sub{font-size:12px;color:var(--muted);margin-top:3px;line-height:1.5}
 .cl-tags{margin-top:4px;display:flex;gap:4px;flex-wrap:wrap}
 .tag-d{font-size:11px;padding:2px 8px;border-radius:999px;background:var(--red-bg);color:var(--red);font-weight:500}
 .tag-o{font-size:11px;padding:2px 8px;border-radius:999px;background:var(--blue-bg);color:var(--blue);font-weight:500}
 .tag-p{font-size:11px;padding:2px 8px;border-radius:999px;background:var(--purple-bg);color:var(--purple);font-weight:500}
-.cl-price{font-size:12px;font-weight:500;color:var(--muted);white-space:nowrap;padding-left:10px;flex-shrink:0;margin-top:2px}
+.cl-price{font-size:12px;font-weight:500;color:var(--muted);white-space:nowrap;padding-left:8px;flex-shrink:0;margin-top:2px}
 
-@media(max-width:640px){
-  .kpi-grid,.two-col{grid-template-columns:repeat(2,1fr)}
-  .concept-card{flex-direction:column;align-items:flex-start}
-  .nav-brand span{display:none}
-  th:nth-child(5),td:nth-child(5),th:nth-child(6),td:nth-child(6){display:none}
+/* ── RESPONSIVE ── */
+@media(max-width:767px){
+  .top-nav .tabs,.concept-badge{display:none}
+  .bottom-nav{display:flex}
+  .page{padding-bottom:calc(var(--bottom-h) + 12px)}
+  .kpi-grid{grid-template-columns:repeat(2,1fr);gap:8px}
+  .kpi-val{font-size:20px}
+  .status-grid{grid-template-columns:1fr}
+  .sr:nth-child(even){padding-left:0;border-left:none}
+  .sr:nth-last-child(-n+2){border-bottom:.5px solid var(--border)}
+  .sr:last-child{border-bottom:none}
+  .levels{grid-template-columns:1fr}
+  .concept-card .row{flex-direction:column}
+}
+@media(min-width:768px) and (max-width:1023px){
+  .kpi-grid{grid-template-columns:repeat(2,1fr)}
+  .kpi-val{font-size:21px}
+}
+@media(min-width:768px){
+  .page{padding:20px 20px 40px}
 }
 </style>
 </head>
 <body>
 
-<nav class="nav">
+<!-- TOP NAV (tablet+desktop) -->
+<nav class="top-nav">
   <div class="nav-brand">Ahmed & Tahany <span>· July 4, 2026</span></div>
-  <div class="nav-tabs">
-    <button class="nav-tab active" onclick="goTo('dashboard',this)">Dashboard</button>
-    <button class="nav-tab" onclick="goTo('bookings',this)">Bookings</button>
-    <button class="nav-tab" onclick="goTo('guests',this)">Guests</button>
-    <button class="nav-tab" onclick="goTo('checklist',this)">Checklist</button>
+  <div class="tabs">
+    <button class="tab active" onclick="goTo('dashboard',this)">Dashboard</button>
+    <button class="tab" onclick="goTo('bookings',this)">Bookings</button>
+    <button class="tab" onclick="goTo('guests',this)">Guests</button>
+    <button class="tab" onclick="goTo('checklist',this)">Checklist</button>
   </div>
   <div class="concept-badge">✓ Concept 1 — Dreamy Heaven</div>
+</nav>
+
+<!-- BOTTOM NAV (mobile) -->
+<nav class="bottom-nav">
+  <div class="tabs">
+    <button class="tab active" onclick="goTo('dashboard',this)"><span class="icon">🏠</span><span class="label">Dashboard</span></button>
+    <button class="tab" onclick="goTo('bookings',this)"><span class="icon">📋</span><span class="label">Bookings</span></button>
+    <button class="tab" onclick="goTo('guests',this)"><span class="icon">👥</span><span class="label">Guests</span></button>
+    <button class="tab" onclick="goTo('checklist',this)"><span class="icon">✅</span><span class="label">Checklist</span></button>
+  </div>
 </nav>
 
 <!-- ══ DASHBOARD ══ -->
 <div class="page active" id="page-dashboard">
   <div class="kpi-grid">
     <div class="kpi"><div class="kpi-label">Days to Wedding</div><div class="kpi-val gold" id="countdown">—</div></div>
-    <div class="kpi"><div class="kpi-label">Expected guests</div><div class="kpi-val g">330 <span style="font-size:14px;color:var(--muted)">+24</span></div></div>
+    <div class="kpi"><div class="kpi-label">Expected guests</div><div class="kpi-val g">330 <span style="font-size:13px;color:var(--muted)">+24</span></div></div>
     <div class="kpi"><div class="kpi-label">Checklist done</div><div class="kpi-val" id="dash-done">0%</div></div>
     <div class="kpi"><div class="kpi-label">Decisions pending</div><div class="kpi-val a" id="dash-dec">—</div></div>
   </div>
 
   <div class="concept-card">
-    <div>
-      <h3>Concept 1 — Dreamy Heaven ✓ Selected</h3>
-      <p>Ethereal clouds · Moonlight glow · Blush florals · Ivory columns · Sphere lighting<br>Warm Beige / Dusty Rose / Champagne Gold · Four Seasons Nile Plaza · July 4, 2026<br>3D concept arriving ~May 17 · Layout finalized · Invitations sent ✓</p>
+    <div class="row">
+      <div>
+        <h3>Concept 1 — Dreamy Heaven ✓</h3>
+        <p>Ethereal clouds · Moonlight glow · Blush florals · Ivory columns · Sphere lighting<br>Warm Beige / Dusty Rose / Champagne Gold · Four Seasons Nile Plaza<br>3D concept arriving ~May 17 · Layout finalized · Invitations sent ✓</p>
+      </div>
+      <div class="concept-check">Confirmed</div>
     </div>
-    <div class="concept-check">Confirmed</div>
   </div>
 
   <div class="meeting-card">
-    <h4>📅 Tomorrow's meetings — Thursday May 14</h4>
+    <h4>📅 Tomorrow — Thursday May 14</h4>
     <div class="meeting-slot">
-      <div class="meeting-time">1:00 PM</div>
-      <div class="meeting-info">
-        <div class="meeting-name">Dina — Design Agency</div>
-        <div class="meeting-sub">Hall design & decor details · Four Seasons Nile Plaza</div>
-      </div>
+      <div class="meeting-time">3:00 PM</div>
+      <div><div class="meeting-name">Dina — Design Team</div><div class="meeting-sub">Hall design & decor details · Four Seasons Nile Plaza</div></div>
     </div>
     <div class="meeting-slot">
       <div class="meeting-time">3:00 PM</div>
-      <div class="meeting-info">
-        <div class="meeting-name">Ahmed Shafie — Wedding Vendor (Hotel)</div>
-        <div class="meeting-sub">Finalize entertainment & vendor details</div>
-      </div>
+      <div><div class="meeting-name">Ahmed Shafie — Wedding Vendor</div><div class="meeting-sub">Entertainment & vendor details</div></div>
     </div>
     <div class="meeting-slot">
       <div class="meeting-time">5:00 PM</div>
-      <div class="meeting-info">
-        <div class="meeting-name">Maha & Hossam — Clients</div>
-        <div class="meeting-sub">Review & final approvals · extra setup day confirmation (Thu night → Fri setup → Sat event)</div>
-      </div>
+      <div><div class="meeting-name">Maha & Hossam — Clients</div><div class="meeting-sub">Final approvals · setup day confirmation (Thu night → Fri setup → Sat event)</div></div>
     </div>
   </div>
 
-  <div class="card" style="margin-bottom:14px">
+  <div class="card">
     <h4>⚡ Status overview</h4>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:0">
-      <div class="status-row" style="padding-right:16px"><div class="sr-text">Hall layout</div><span class="pill done">Finalized ✓</span></div>
-      <div class="status-row" style="padding-left:16px;border-left:.5px solid var(--border)"><div class="sr-text">Invitations</div><span class="pill done">Sent ✓</span></div>
-      <div class="status-row" style="padding-right:16px"><div class="sr-text">DJ Bassem Nagy</div><span class="pill done">Booked ✓</span></div>
-      <div class="status-row" style="padding-left:16px;border-left:.5px solid var(--border)"><div class="sr-text"><div>Ahmed Saad — Singer</div><div class="sr-sub">50% deposit paid</div></div><span class="pill partial">Deposit paid</span></div>
-      <div class="status-row" style="padding-right:16px"><div class="sr-text"><div>Carolina Karam</div><div class="sr-sub">50% deposit paid · solo vs. dancers TBC</div></div><span class="pill partial">Deposit paid</span></div>
-      <div class="status-row" style="padding-left:16px;border-left:.5px solid var(--border)"><div class="sr-text"><div>Cinema photography</div><div class="sr-sub">Exploring options — yet to decide</div></div><span class="pill discussion">TBD</span></div>
-      <div class="status-row" style="padding-right:16px"><div class="sr-text"><div>3D concept</div><div class="sr-sub">Arriving ~May 17</div></div><span class="pill pending">Upcoming</span></div>
-      <div class="status-row" style="padding-left:16px;border-left:.5px solid var(--border)"><div class="sr-text"><div>Entertainment extras</div><div class="sr-sub">After final concept</div></div><span class="pill discussion">In discussion</span></div>
-      <div class="status-row" style="padding-right:16px"><div class="sr-text"><div>Preliminary client quotation</div><div class="sr-sub">Shared — not yet finalized</div></div><span class="pill discussion">In discussion</span></div>
-      <div class="status-row" style="padding-left:16px;border-left:.5px solid var(--border)"><div class="sr-text"><div>Setup extra day</div><div class="sr-sub">Awaiting Hossam & Maha</div></div><span class="pill pending">Awaiting</span></div>
-      <div class="status-row" style="padding-right:16px;border-bottom:none"><div class="sr-text">Logistics team hire</div><span class="pill warn">Urgent</span></div>
-      <div class="status-row" style="padding-left:16px;border-left:.5px solid var(--border);border-bottom:none"><div class="sr-text"><div>Production house visit</div><div class="sr-sub">After 3D concept</div></div><span class="pill pending">After May 17</span></div>
+    <div class="status-grid">
+      <div class="sr"><div class="sr-text">Hall layout</div><span class="pill done">Finalized ✓</span></div>
+      <div class="sr"><div class="sr-text">Invitations</div><span class="pill done">Sent ✓</span></div>
+      <div class="sr"><div class="sr-text">DJ Bassem Nagy</div><span class="pill done">Booked ✓</span></div>
+      <div class="sr"><div class="sr-text"><div>Ahmed Saad — Singer</div><div class="sr-sub">50% deposit paid</div></div><span class="pill partial">Deposit paid</span></div>
+      <div class="sr"><div class="sr-text"><div>Carolina Karam</div><div class="sr-sub">50% deposit paid · solo vs. dancers TBC</div></div><span class="pill partial">Deposit paid</span></div>
+      <div class="sr"><div class="sr-text"><div>Cinema photography</div><div class="sr-sub">Exploring options — yet to decide</div></div><span class="pill discussion">TBD</span></div>
+      <div class="sr"><div class="sr-text"><div>3D concept</div><div class="sr-sub">Arriving ~May 17</div></div><span class="pill pending">Upcoming</span></div>
+      <div class="sr"><div class="sr-text"><div>Entertainment extras</div><div class="sr-sub">After final concept</div></div><span class="pill discussion">In discussion</span></div>
+      <div class="sr"><div class="sr-text"><div>Preliminary client quotation</div><div class="sr-sub">Shared — not yet finalized</div></div><span class="pill discussion">In discussion</span></div>
+      <div class="sr"><div class="sr-text"><div>Setup extra day</div><div class="sr-sub">Awaiting Hossam & Maha</div></div><span class="pill pending">Awaiting</span></div>
+      <div class="sr"><div class="sr-text">Logistics team hire</div><span class="pill warn">Urgent</span></div>
+      <div class="sr"><div class="sr-text"><div>Production house visit</div><div class="sr-sub">After 3D concept</div></div><span class="pill pending">After May 17</span></div>
     </div>
   </div>
 
-  <div class="card" style="margin-bottom:14px">
+  <div class="card">
     <h4>🎯 Guest follow-up plan</h4>
-    <div style="display:flex;gap:10px;flex-wrap:wrap;padding-top:8px">
-      <div style="flex:1;min-width:160px;background:#faf7f5;border:.5px solid var(--border);border-radius:10px;padding:14px">
-        <div style="font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px">Level 1</div>
-        <div style="font-size:13px;line-height:1.6">Family members personally reach out to guests to check who's attending</div>
-      </div>
-      <div style="flex:1;min-width:160px;background:#faf7f5;border:.5px solid var(--border);border-radius:10px;padding:14px">
-        <div style="font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px">Level 2</div>
-        <div style="font-size:13px;line-height:1.6">The team follows up directly with guests to confirm exact headcounts</div>
-      </div>
-      <div style="flex:1;min-width:160px;background:#faf7f5;border:.5px solid var(--border);border-radius:10px;padding:14px">
-        <div style="font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px">Level 3</div>
-        <div style="font-size:13px;line-height:1.6">Morning of the wedding — a personalised message is sent:<br><em>"We're looking forward to seeing you tonight" 🎉</em></div>
-      </div>
+    <div class="levels">
+      <div class="level"><div class="level-num">Level 1</div><p>Family members personally reach out to guests to check who's attending</p></div>
+      <div class="level"><div class="level-num">Level 2</div><p>The team follows up directly with guests to confirm exact headcounts</p></div>
+      <div class="level"><div class="level-num">Level 3</div><p>Morning of the wedding — a personalised message is sent:<br><em>"We're looking forward to seeing you tonight" 🎉</em></p></div>
     </div>
   </div>
 </div>
 
 <!-- ══ BOOKINGS ══ -->
 <div class="page" id="page-bookings">
-  <div class="kpi-grid" style="grid-template-columns:repeat(4,1fr)">
+  <div class="kpi-grid">
     <div class="kpi"><div class="kpi-label">Total vendors</div><div class="kpi-val">8</div></div>
     <div class="kpi"><div class="kpi-label">Fully booked</div><div class="kpi-val g" id="b-booked">0</div></div>
     <div class="kpi"><div class="kpi-label">Deposit paid</div><div class="kpi-val a" id="b-partial">0</div></div>
     <div class="kpi"><div class="kpi-label">Pending / TBD</div><div class="kpi-val r" id="b-tbd">0</div></div>
   </div>
-
-  <div class="card">
-    <h4>📋 Vendor bookings & payments</h4>
-    <div style="overflow-x:auto">
-    <table class="book-table" id="book-table">
-      <thead>
-        <tr>
-          <th>Vendor</th>
-          <th>Category</th>
-          <th>Status</th>
-          <th>Paid</th>
-          <th>Remaining</th>
-          <th>Notes</th>
-        </tr>
-      </thead>
-      <tbody id="book-tbody"></tbody>
-    </table>
+  <div class="card" style="padding:0;overflow:hidden">
+    <div style="padding:14px 16px 0;font-size:13px;font-weight:600">📋 Vendor bookings & payments</div>
+    <div class="tbl-wrap" style="border:none;border-radius:0;margin-top:12px">
+      <table class="book-table">
+        <thead><tr><th>Vendor</th><th>Category</th><th>Status</th><th>Paid</th><th>Remaining</th><th>Notes</th></tr></thead>
+        <tbody id="book-tbody"></tbody>
+      </table>
     </div>
   </div>
 </div>
 
 <!-- ══ GUESTS ══ -->
 <div class="page" id="page-guests">
-  <div class="kpi-grid" style="grid-template-columns:repeat(5,1fr)">
-    <div class="kpi"><div class="kpi-label">RSVPs received</div><div class="kpi-val">49</div></div>
+  <div class="kpi-grid" style="grid-template-columns:repeat(3,1fr)">
     <div class="kpi"><div class="kpi-label">Attending entries</div><div class="kpi-val g">46</div></div>
-    <div class="kpi"><div class="kpi-label">Headcount (RSVPs)</div><div class="kpi-val g">103</div></div>
+    <div class="kpi"><div class="kpi-label">Total headcount</div><div class="kpi-val g">103</div></div>
     <div class="kpi"><div class="kpi-label">Declining</div><div class="kpi-val r">3</div></div>
-    <div class="kpi"><div class="kpi-label">Expected total</div><div class="kpi-val gold">330+24</div></div>
   </div>
   <div class="g-controls">
-    <input class="g-search" type="text" placeholder="Search by name…" oninput="filterGuests()" id="g-search">
+    <input class="g-search" type="search" placeholder="Search name…" oninput="filterGuests()" id="g-search">
     <button class="g-filter active" onclick="setGFilter('all',this)">All (49)</button>
-    <button class="g-filter" onclick="setGFilter('attending',this)">Attending (46)</button>
-    <button class="g-filter" onclick="setGFilter('declining',this)">Declining (3)</button>
+    <button class="g-filter" onclick="setGFilter('attending',this)">Attending</button>
+    <button class="g-filter" onclick="setGFilter('declining',this)">Declining</button>
   </div>
-  <div class="g-count-row" id="g-count-row">Showing 49 guests</div>
-  <div style="overflow-x:auto">
-  <table class="guest-table">
-    <thead><tr><th>#</th><th>Name</th><th>Status</th><th>Headcount</th><th>Responded</th><th>Guest ID</th></tr></thead>
-    <tbody id="guest-tbody"></tbody>
-  </table>
+  <div class="g-count" id="g-count">Showing 49 entries</div>
+  <div class="tbl-wrap">
+    <table class="guest-table">
+      <thead><tr><th>#</th><th>Name</th><th>Status</th><th>Count</th><th>Date</th><th>ID</th></tr></thead>
+      <tbody id="guest-tbody"></tbody>
+    </table>
   </div>
 </div>
 
@@ -286,14 +299,15 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
   <div class="cl-filter">
     <button class="cl-btn active" onclick="setFilter('all',this)">All</button>
     <button class="cl-btn" onclick="setFilter('pending',this)">Pending</button>
-    <button class="cl-btn" onclick="setFilter('done',this)">Completed</button>
-    <button class="cl-btn" onclick="setFilter('decision',this)">Decision needed</button>
+    <button class="cl-btn" onclick="setFilter('done',this)">Done</button>
+    <button class="cl-btn" onclick="setFilter('decision',this)">Decisions</button>
     <button class="cl-btn" onclick="setFilter('optional',this)">Optional</button>
   </div>
   <div id="cl-sections"></div>
 </div>
 
 <script>
+// countdown
 (function(){
   const d=Math.ceil((new Date('2026-07-04')-new Date())/864e5);
   document.getElementById('countdown').textContent=d>0?d+'d':'Today!';
@@ -301,37 +315,26 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 
 // ── BOOKINGS ──
 const BOOKINGS=[
-  {vendor:'Carolina Karam',cat:'Entertainment',status:'deposit',paid:'USD 5,000',remaining:'USD 5,000',notes:'Package details to confirm after final concept'},
-  {vendor:'Ahmed Saad',cat:'Zaffa',status:'deposit',paid:'50%',remaining:'50% before event',notes:'Before-dinner Zaffa'},
+  {vendor:'Carolina Karam',cat:'Entertainment',status:'deposit',paid:'USD 5,000',remaining:'USD 5,000',notes:'Package to confirm after final concept'},
+  {vendor:'Ahmed Saad',cat:'Singer',status:'deposit',paid:'50%',remaining:'50% before event',notes:'Own performance slot'},
   {vendor:'DJ Bassem Nagy',cat:'DJ',status:'booked',paid:'TBD',remaining:'TBD',notes:'Fully booked ✓'},
   {vendor:'Hussein Abdelkader',cat:'Photography',status:'deposit',paid:'TBD',remaining:'TBD',notes:'Payment schedule to finalize'},
-  {vendor:'Cinema photographer',cat:'Cinema photo',status:'tbd',paid:'—',remaining:'—',notes:'Still deciding who'},
+  {vendor:'Cinema photographer',cat:'Cinema',status:'tbd',paid:'—',remaining:'—',notes:'Exploring options — yet to decide'},
   {vendor:'CMC Logistics',cat:'Logistics',status:'tbd',paid:'—',remaining:'EGP 120,000',notes:'Team to hire urgently'},
-  {vendor:'Dina — Design Agency',cat:'Decoration',status:'tbd',paid:'—',remaining:'EGP 6M+',notes:'Post 3D concept & samples visit'},
+  {vendor:'Dina — Design Team',cat:'Decoration',status:'tbd',paid:'—',remaining:'EGP 6M+',notes:'Post 3D concept & samples visit'},
   {vendor:'Ahmed Shafie',cat:'Hotel vendor',status:'tbd',paid:'—',remaining:'TBD',notes:'Entertainment lineup — meeting May 14'},
 ];
-
-const STATUS_LABELS={booked:'Booked ✓',deposit:'Deposit paid',tbd:'Pending / TBD'};
-const STATUS_CLASSES={booked:'done',deposit:'partial',tbd:'warn'};
-
+const SL={booked:'Booked ✓',deposit:'Deposit paid',tbd:'Pending / TBD'};
+const SC={booked:'done',deposit:'partial',tbd:'warn'};
 function renderBookings(){
-  let booked=0,partial=0,tbd=0;
+  let bo=0,pa=0,tb=0;
   document.getElementById('book-tbody').innerHTML=BOOKINGS.map(b=>{
-    if(b.status==='booked') booked++;
-    else if(b.status==='deposit') partial++;
-    else tbd++;
-    return `<tr>
-      <td><strong>${b.vendor}</strong></td>
-      <td style="color:var(--muted)">${b.cat}</td>
-      <td><span class="pill ${STATUS_CLASSES[b.status]}">${STATUS_LABELS[b.status]}</span></td>
-      <td class="${b.paid!=='—'&&b.paid!=='TBD'?'money-paid':'money-tbd'}">${b.paid}</td>
-      <td class="${b.remaining!=='—'&&b.remaining!=='TBD'?'money-rem':'money-tbd'}">${b.remaining}</td>
-      <td style="font-size:12px;color:var(--muted)">${b.notes}</td>
-    </tr>`;
+    if(b.status==='booked')bo++;else if(b.status==='deposit')pa++;else tb++;
+    return`<tr><td><strong>${b.vendor}</strong></td><td style="color:var(--muted)">${b.cat}</td><td><span class="pill ${SC[b.status]}">${SL[b.status]}</span></td><td class="${b.paid!=='—'&&b.paid!=='TBD'?'money-paid':'money-tbd'}">${b.paid}</td><td class="${b.remaining!=='—'&&b.remaining!=='TBD'?'money-rem':'money-tbd'}">${b.remaining}</td><td style="font-size:12px;color:var(--muted)">${b.notes}</td></tr>`;
   }).join('');
-  document.getElementById('b-booked').textContent=booked;
-  document.getElementById('b-partial').textContent=partial;
-  document.getElementById('b-tbd').textContent=tbd;
+  document.getElementById('b-booked').textContent=bo;
+  document.getElementById('b-partial').textContent=pa;
+  document.getElementById('b-tbd').textContent=tb;
 }
 
 // ── GUESTS ──
@@ -386,29 +389,21 @@ const GUESTS=[
   {id:'GST-T9CPCY',name:'Serene Taher',attendance:'Declining',count:0,ts:'2026-05-11'},
   {id:'GST-FC0C5I',name:'Nina Kabbany',attendance:'Attending',count:3,ts:'2026-05-12'},
 ];
-
 let gFilter='all';
 function setGFilter(f,btn){gFilter=f;document.querySelectorAll('.g-filter').forEach(b=>b.classList.remove('active'));btn.classList.add('active');renderGuestTable();}
 function filterGuests(){renderGuestTable();}
 function renderGuestTable(){
-  const q=document.getElementById('g-search').value.toLowerCase();
+  const q=(document.getElementById('g-search').value||'').toLowerCase();
   const rows=GUESTS.filter(g=>{
-    if(q&&!g.name.toLowerCase().includes(q)&&!g.id.toLowerCase().includes(q)) return false;
-    if(gFilter==='attending') return g.attendance==='Attending';
-    if(gFilter==='declining') return g.attendance==='Declining';
+    if(q&&!g.name.toLowerCase().includes(q)&&!g.id.toLowerCase().includes(q))return false;
+    if(gFilter==='attending')return g.attendance==='Attending';
+    if(gFilter==='declining')return g.attendance==='Declining';
     return true;
   });
-  document.getElementById('g-count-row').textContent=`Showing ${rows.length} of ${GUESTS.length} entries`;
+  document.getElementById('g-count').textContent=`Showing ${rows.length} of ${GUESTS.length} entries`;
   document.getElementById('guest-tbody').innerHTML=rows.map((g,i)=>{
     const att=g.attendance==='Attending';
-    return `<tr>
-      <td style="color:var(--muted)">${i+1}</td>
-      <td><strong>${g.name}</strong></td>
-      <td><span class="status-dot ${att?'dot-att':'dot-dec'}"></span>${g.attendance}</td>
-      <td><span class="num-badge ${g.count>=4?'big':''}">${g.count||'—'}</span></td>
-      <td style="color:var(--muted)">${g.ts}</td>
-      <td style="color:var(--muted);font-size:11px">${g.id}</td>
-    </tr>`;
+    return`<tr><td style="color:var(--muted)">${i+1}</td><td><strong>${g.name}</strong></td><td><span class="sdot ${att?'dot-att':'dot-dec'}"></span>${g.attendance}</td><td><span class="num-badge ${g.count>=4?'big':''}">${g.count||'—'}</span></td><td style="color:var(--muted);white-space:nowrap">${g.ts}</td><td style="color:var(--muted);font-size:11px">${g.id}</td></tr>`;
   }).join('');
 }
 
@@ -426,8 +421,8 @@ const CL_DATA=[
     {id:'c4',name:'Visit production house',sub:'After 3D concept — quality, finish, flowers & all details',tags:[]},
   ]},
   {id:'meetings',icon:'📅',title:'Upcoming meetings',items:[
-    {id:'m1',name:'Hotel meeting — Dina (Design Agency)',sub:'Thu May 14, 1:00 PM · Hall design & decor details',tags:[]},
-    {id:'m2',name:'Hotel meeting — Ahmed Shafie (Wedding Vendor)',sub:'Thu May 14, 3:00 PM · Entertainment & vendor details',tags:[]},
+    {id:'m1',name:'Hotel meeting — Dina (Design Team)',sub:'Thu May 14, 3:00 PM · Hall design & decor details',tags:[]},
+    {id:'m2',name:'Hotel meeting — Ahmed Shafie',sub:'Thu May 14, 3:00 PM · Entertainment & vendor details',tags:[]},
     {id:'m3',name:'Client meeting — Maha & Hossam',sub:'Thu May 14, 5:00 PM · Final approvals · setup day confirmation',tags:[]},
     {id:'m4',name:'Lights meeting with design team',sub:'To be scheduled after hotel meeting',tags:[]},
   ]},
@@ -449,10 +444,10 @@ const CL_DATA=[
     {id:'e5',name:'Entertainment extras',sub:'To finalize after final concept confirmed',tags:['discussion']},
   ]},
   {id:'decor',icon:'✨',title:'Decor & design',items:[
-    {id:'ge1',name:'Guest entrance option',sub:'Layout done — entrance design confirmed',tags:[],pre:true},
+    {id:'ge1',name:'Guest entrance design confirmed',sub:'Layout done — entrance concept agreed',tags:[],pre:true},
     {id:'ge3',name:'Confirm live violinists for entrance',tags:['optional']},
-    {id:'cl1',name:'Ceiling & wall style',sub:'Concept selected — awaiting 3D to confirm details',tags:[],pre:true},
-    {id:'bs1',name:'Bridal stage design',sub:'Concept selected — details in 3D phase',tags:[],pre:true},
+    {id:'cl1',name:'Ceiling & wall style confirmed',sub:'Awaiting 3D to finalize details',tags:[],pre:true},
+    {id:'bs1',name:'Bridal stage design confirmed',sub:'Details to finalize in 3D phase',tags:[],pre:true},
   ]},
   {id:'invitation',icon:'✉️',title:'Digital invitation',items:[
     {id:'inv1',name:'Invitation designed & sent ✓',sub:'Guests are registering now',tags:[],pre:true},
@@ -464,7 +459,7 @@ const CL_DATA=[
     {id:'ph2',name:'Finalize payment schedule — Hussein Abdelkader',sub:'Payment timing + delivery dates',tags:[]},
     {id:'ph3',name:'Cinema photography — select who',sub:'Exploring options',tags:['decision']},
     {id:'ph4',name:'Coordinate Hussein & cinema photographer',sub:'Ensure harmony, no conflicts on the day',tags:[]},
-    {id:'ph5',name:'Pre-wedding photoshoot',price:'EGP 11,000–16,500',tags:['optional']},
+
     {id:'ph6',name:'Photo booth — unlimited prints',price:'EGP 16,500',tags:['optional']},
     {id:'ph7',name:'360 camera',price:'EGP 11,000',tags:['optional']},
   ]},
@@ -487,9 +482,9 @@ const CL_DATA=[
 
 let clState={};
 CL_DATA.forEach(s=>s.items.forEach(it=>{clState[it.id]=it.pre||false;}));
-try{const sv=localStorage.getItem('at_v5');if(sv)clState={...clState,...JSON.parse(sv)};}catch(e){}
+try{const sv=localStorage.getItem('at_v6');if(sv)clState={...clState,...JSON.parse(sv)};}catch(e){}
 let clFilter='all';
-function saveState(){try{localStorage.setItem('at_v5',JSON.stringify(clState));}catch(e){}}
+function saveState(){try{localStorage.setItem('at_v6',JSON.stringify(clState));}catch(e){}}
 
 function renderChecklist(){
   const cont=document.getElementById('cl-sections');
@@ -497,26 +492,26 @@ function renderChecklist(){
   let td=0,ta=0,dp=0;
   CL_DATA.forEach(sec=>{
     const filtered=sec.items.filter(it=>{
-      if(clFilter==='all') return true;
-      if(clFilter==='pending') return !clState[it.id];
-      if(clFilter==='done') return clState[it.id];
-      if(clFilter==='decision') return it.tags.includes('decision');
-      if(clFilter==='optional') return it.tags.includes('optional');
+      if(clFilter==='all')return true;
+      if(clFilter==='pending')return!clState[it.id];
+      if(clFilter==='done')return clState[it.id];
+      if(clFilter==='decision')return it.tags.includes('decision');
+      if(clFilter==='optional')return it.tags.includes('optional');
       return true;
     });
-    if(!filtered.length) return;
+    if(!filtered.length)return;
     const done=sec.items.filter(i=>clState[i.id]).length,tot=sec.items.length;
     td+=done;ta+=tot;
     const pct=Math.round(done/tot*100);
     const bc=done===tot?'done':done>0?'partial':'';
     const el=document.createElement('div');
-    el.className='cl-section';
+    el.className='cl-sec';
     el.innerHTML=`
       <div class="cl-head" onclick="toggleCL('${sec.id}')">
         <span class="cl-icon">${sec.icon}</span>
         <span class="cl-title">${sec.title}</span>
         <span class="cl-badge ${bc}" id="clbadge-${sec.id}">${done}/${tot}</span>
-        <span class="chevron open" id="clchev-${sec.id}">⌄</span>
+        <span class="chev open" id="clchev-${sec.id}">⌄</span>
       </div>
       <div class="prog-track"><div class="prog-fill" id="clprog-${sec.id}" style="width:${pct}%"></div></div>
       <div id="clbody-${sec.id}">
@@ -524,9 +519,9 @@ function renderChecklist(){
           <div class="cl-item" id="clit-${it.id}">
             <label>
               <input type="checkbox" ${clState[it.id]?'checked':''} onchange="toggleItem('${it.id}','${sec.id}')">
-              <div class="cl-item-content">
-                <div class="cl-item-name ${clState[it.id]?'checked':''}">${it.name}</div>
-                ${it.sub?`<div class="cl-item-sub">${it.sub}</div>`:''}
+              <div style="flex:1">
+                <div class="cl-name ${clState[it.id]?'checked':''}">${it.name}</div>
+                ${it.sub?`<div class="cl-sub">${it.sub}</div>`:''}
                 ${it.tags.filter(t=>t!=='discussion').length?`<div class="cl-tags">${it.tags.filter(t=>t!=='discussion').map(t=>`<span class="${t==='decision'?'tag-d':'tag-o'}">${t==='decision'?'Decision needed':'Optional'}</span>`).join('')}</div>`:''}
                 ${it.tags.includes('discussion')?`<div class="cl-tags"><span class="tag-p">In discussion</span></div>`:''}
               </div>
@@ -539,41 +534,25 @@ function renderChecklist(){
   CL_DATA.forEach(s=>s.items.forEach(i=>{if(i.tags.includes('decision')&&!clState[i.id])dp++;}));
   document.getElementById('dash-done').textContent=Math.round(td/ta*100)+'%';
   document.getElementById('dash-dec').textContent=dp;
-  renderDecisions();
-}
-
-function renderDecisions(){
-  const list=document.getElementById('decisions-list');
-  if(!list) return;
-  let html='';
-  CL_DATA.forEach(s=>s.items.forEach(it=>{
-    if(it.tags.includes('decision')){
-      const done=clState[it.id];
-      html+=`<div class="dec-item"><div class="dec-dot ${done?'done':''}"></div><div class="dec-text">${it.name}</div><span class="dec-tag ${done?'done':''}">${done?'Done':'Pending'}</span></div>`;
-    }
-  }));
-  list.innerHTML=html;
 }
 
 function toggleItem(id,secId){
   clState[id]=!clState[id];saveState();
-  document.querySelector('#clit-'+id+' .cl-item-name').classList.toggle('checked',clState[id]);
+  document.querySelector('#clit-'+id+' .cl-name').classList.toggle('checked',clState[id]);
   const sec=CL_DATA.find(s=>s.id===secId);
   const done=sec.items.filter(i=>clState[i.id]).length,pct=Math.round(done/sec.items.length*100);
-  const fill=document.getElementById('clprog-'+secId);
-  if(fill) fill.style.width=pct+'%';
+  const fill=document.getElementById('clprog-'+secId);if(fill)fill.style.width=pct+'%';
   const badge=document.getElementById('clbadge-'+secId);
   if(badge){const bc=done===sec.items.length?'done':done>0?'partial':'';badge.className='cl-badge '+bc;badge.textContent=done+'/'+sec.items.length;}
   let td=0,ta=0,dp=0;
   CL_DATA.forEach(s=>{s.items.forEach(i=>{ta++;if(clState[i.id])td++;if(i.tags.includes('decision')&&!clState[i.id])dp++;});});
   document.getElementById('dash-done').textContent=Math.round(td/ta*100)+'%';
   document.getElementById('dash-dec').textContent=dp;
-  renderDecisions();
 }
 
 function toggleCL(id){
   const body=document.getElementById('clbody-'+id),chev=document.getElementById('clchev-'+id);
-  if(!body) return;
+  if(!body)return;
   const open=body.style.display!=='none';
   body.style.display=open?'none':'block';
   chev.classList.toggle('open',!open);
@@ -588,9 +567,11 @@ function setFilter(f,btn){
 
 function goTo(page,btn){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-  document.querySelectorAll('.nav-tab').forEach(b=>b.classList.remove('active'));
+  // sync both navs
+  document.querySelectorAll('.tab').forEach(b=>{
+    b.classList.toggle('active', b.getAttribute('onclick')===`goTo('${page}',this)`);
+  });
   document.getElementById('page-'+page).classList.add('active');
-  btn.classList.add('active');
 }
 
 renderBookings();
