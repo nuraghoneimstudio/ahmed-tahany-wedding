@@ -15,8 +15,6 @@
   --nav-h:52px;--bottom-h:56px;
 }
 html,body{height:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--ink)}
-
-/* ── NAV (top, desktop/tablet) ── */
 .top-nav{background:#3a2e2e;color:#FFF5F2;display:flex;align-items:center;justify-content:space-between;padding:0 20px;height:var(--nav-h);position:sticky;top:0;z-index:200}
 .nav-brand{font-size:14px;font-weight:600;white-space:nowrap}
 .nav-brand span{color:#E8DCCF}
@@ -25,34 +23,23 @@ html,body{height:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sa
 .top-nav .tab:hover{color:#FFF5F2}
 .top-nav .tab.active{background:#5a4a4a;color:#FFF5F2}
 .concept-badge{font-size:11px;background:#E8DCCF22;color:#E8DCCF;border:1px solid #E8DCCF55;border-radius:999px;padding:3px 12px;white-space:nowrap;flex-shrink:0}
-
-/* ── BOTTOM NAV (mobile only) ── */
 .bottom-nav{display:none;position:fixed;bottom:0;left:0;right:0;height:var(--bottom-h);background:#3a2e2e;z-index:200;border-top:1px solid #5a4a4a}
 .bottom-nav .tabs{display:flex;height:100%;justify-content:center;gap:0}
 .bottom-nav .tab{flex:0 0 auto;width:90px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:500;color:#c9b8b0;border:none;border-top:2px solid transparent;background:transparent;cursor:pointer;font-family:inherit;transition:all .15s;padding:0}
 .bottom-nav .tab.active{color:#FFF5F2;border-top-color:#E8DCCF}
 .bottom-nav .tab .icon{display:none}
-.bottom-nav .tab .label{font-size:13px}
-
-/* ── PAGE WRAPPER ── */
 .page{display:none;padding:16px 16px 72px;max-width:1000px;margin:0 auto}
 .page.active{display:block}
-
-/* ── KPI GRID ── */
 .kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:14px}
-.kpi{background:var(--card);border:.5px solid var(--border);border-radius:10px;padding:14px 14px}
+.kpi{background:var(--card);border:.5px solid var(--border);border-radius:10px;padding:14px}
 .kpi-label{font-size:11px;color:var(--muted);margin-bottom:4px}
 .kpi-val{font-size:22px;font-weight:700;line-height:1.2}
 .kpi-val.g{color:var(--green)}.kpi-val.a{color:var(--amber)}.kpi-val.gold{color:var(--gold)}.kpi-val.r{color:var(--red)}
-
-/* ── CONCEPT CARD ── */
 .concept-card{background:linear-gradient(135deg,#3a2e2e,#5a4040);border-radius:12px;padding:16px 20px;color:#FFF5F2;margin-bottom:14px}
 .concept-card h3{font-size:14px;font-weight:500;margin-bottom:4px}
 .concept-card p{font-size:12px;color:#E8DCCF;line-height:1.7}
 .concept-card .row{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
 .concept-check{background:#E8DCCF22;border:1px solid #E8DCCF66;color:#E8DCCF;font-size:11px;padding:4px 12px;border-radius:999px;white-space:nowrap;flex-shrink:0;margin-top:2px}
-
-/* ── MEETING CARD ── */
 .meeting-card{background:#f9efec;border:.5px solid var(--border);border-radius:12px;padding:14px 16px;margin-bottom:14px}
 .meeting-card h4{font-size:13px;font-weight:600;color:#8a5a50;margin-bottom:10px}
 .meeting-slot{display:flex;gap:12px;padding:8px 0;border-bottom:.5px solid #E8DCCF}
@@ -60,12 +47,8 @@ html,body{height:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sa
 .meeting-time{font-size:13px;font-weight:700;color:#a0756e;min-width:52px;flex-shrink:0;padding-top:1px}
 .meeting-name{font-size:13px;font-weight:500}
 .meeting-sub{font-size:12px;color:var(--muted);margin-top:2px;line-height:1.5}
-
-/* ── CARD ── */
 .card{background:var(--card);border:.5px solid var(--border);border-radius:12px;padding:14px 16px;margin-bottom:14px}
 .card h4{font-size:13px;font-weight:600;margin-bottom:12px}
-
-/* ── STATUS GRID ── */
 .status-grid{display:grid;grid-template-columns:1fr 1fr;gap:0}
 .sr{display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-bottom:.5px solid var(--border);font-size:13px;gap:8px}
 .sr:nth-child(odd){padding-right:14px}
@@ -79,25 +62,16 @@ html,body{height:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sa
 .pill.partial{background:var(--purple-bg);color:var(--purple)}
 .pill.discussion{background:var(--blue-bg);color:var(--blue)}
 .pill.warn{background:var(--red-bg);color:var(--red)}
-
-/* ── FOLLOW-UP LEVELS ── */
 .levels{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding-top:4px}
 .level{background:#faf7f5;border:.5px solid var(--border);border-radius:10px;padding:12px 14px}
 .level-num{font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px}
 .level p{font-size:13px;line-height:1.6}
-
-/* ── BOOKINGS TABLE ── */
 .tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:12px;border:.5px solid var(--border)}
 .book-table{width:100%;border-collapse:collapse;min-width:560px}
 .book-table th{font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;padding:9px 12px;text-align:left;border-bottom:.5px solid var(--border);background:#faf7f5;white-space:nowrap}
 .book-table td{font-size:13px;padding:10px 12px;border-bottom:.5px solid #f0ebe8;vertical-align:middle}
 .book-table tr:last-child td{border-bottom:none}
 .book-table tbody tr:hover td{background:#fdf9f7}
-.money-paid{color:var(--green-text);font-weight:600}
-.money-rem{color:var(--amber-text);font-weight:600}
-.money-tbd{color:var(--muted)}
-
-/* ── GUEST TABLE ── */
 .g-controls{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap;align-items:center}
 .g-search{flex:1;min-width:140px;font-size:13px;padding:7px 12px;border:1px solid var(--border);border-radius:8px;background:var(--card);font-family:inherit;outline:none;-webkit-appearance:none}
 .g-search:focus{border-color:#a0756e}
@@ -113,8 +87,6 @@ html,body{height:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sa
 .num-badge.big{background:var(--green-bg);color:var(--green-text)}
 .sdot{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:5px;vertical-align:middle}
 .dot-att{background:#a0756e}.dot-dec{background:var(--red)}
-
-/* ── CHECKLIST ── */
 .cl-filter{display:flex;gap:6px;margin-bottom:12px;flex-wrap:wrap}
 .cl-btn{font-size:12px;padding:6px 12px;border-radius:999px;border:1px solid var(--border);background:var(--card);color:#7a6060;cursor:pointer;font-family:inherit;transition:all .15s;white-space:nowrap}
 .cl-btn.active{background:#3a2e2e;color:#FFF5F2;border-color:#3a2e2e}
@@ -142,8 +114,6 @@ html,body{height:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sa
 .tag-o{font-size:11px;padding:2px 8px;border-radius:999px;background:var(--blue-bg);color:var(--blue);font-weight:500}
 .tag-p{font-size:11px;padding:2px 8px;border-radius:999px;background:var(--purple-bg);color:var(--purple);font-weight:500}
 .cl-price{font-size:12px;font-weight:500;color:var(--muted);white-space:nowrap;padding-left:8px;flex-shrink:0;margin-top:2px}
-
-/* ── RESPONSIVE ── */
 @media(max-width:767px){
   .top-nav .tabs,.concept-badge{display:none}
   .bottom-nav{display:flex}
@@ -161,14 +131,11 @@ html,body{height:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sa
   .kpi-grid{grid-template-columns:repeat(2,1fr)}
   .kpi-val{font-size:21px}
 }
-@media(min-width:768px){
-  .page{padding:20px 20px 40px}
-}
+@media(min-width:768px){.page{padding:20px 20px 40px}}
 </style>
 </head>
 <body>
 
-<!-- TOP NAV (tablet+desktop) -->
 <nav class="top-nav">
   <div class="nav-brand">Ahmed & Tahany <span>· July 4, 2026</span></div>
   <div class="tabs">
@@ -180,13 +147,12 @@ html,body{height:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sa
   <div class="concept-badge">✓ Concept 1 — Dreamy Heaven</div>
 </nav>
 
-<!-- BOTTOM NAV (mobile) -->
 <nav class="bottom-nav">
   <div class="tabs">
-    <button class="tab active" onclick="goTo('dashboard',this)"><span class="icon">🏠</span><span class="label">Dashboard</span></button>
-    <button class="tab" onclick="goTo('bookings',this)"><span class="icon">📋</span><span class="label">Bookings</span></button>
-    <button class="tab" onclick="goTo('guests',this)"><span class="icon">👥</span><span class="label">Guests</span></button>
-    <button class="tab" onclick="goTo('checklist',this)"><span class="icon">✅</span><span class="label">Checklist</span></button>
+    <button class="tab active" onclick="goTo('dashboard',this)"><span class="label">Dashboard</span></button>
+    <button class="tab" onclick="goTo('bookings',this)"><span class="label">Bookings</span></button>
+    <button class="tab" onclick="goTo('guests',this)"><span class="label">Guests</span></button>
+    <button class="tab" onclick="goTo('checklist',this)"><span class="label">Checklist</span></button>
   </div>
 </nav>
 
@@ -213,7 +179,7 @@ html,body{height:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sa
     <h4>📅 Tomorrow — Thursday May 14</h4>
     <div class="meeting-slot">
       <div class="meeting-time">3:00 PM</div>
-      <div><div class="meeting-name">Dina — Design Team</div><div class="meeting-sub">Hall design & decor details · Four Seasons Nile Plaza</div></div>
+      <div><div class="meeting-name">Design & Production Team</div><div class="meeting-sub">Hall design & decor details · Four Seasons Nile Plaza</div></div>
     </div>
     <div class="meeting-slot">
       <div class="meeting-time">5:00 PM</div>
@@ -271,13 +237,13 @@ html,body{height:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sa
 <!-- ══ GUESTS ══ -->
 <div class="page" id="page-guests">
   <div class="kpi-grid" style="grid-template-columns:repeat(3,1fr)">
-    <div class="kpi"><div class="kpi-label">Attending entries</div><div class="kpi-val g">46</div></div>
-    <div class="kpi"><div class="kpi-label">Total headcount</div><div class="kpi-val g">103</div></div>
+    <div class="kpi"><div class="kpi-label">Attending entries</div><div class="kpi-val g">51</div></div>
+    <div class="kpi"><div class="kpi-label">Total headcount</div><div class="kpi-val g">112</div></div>
     <div class="kpi"><div class="kpi-label">Declining</div><div class="kpi-val r">3</div></div>
   </div>
   <div class="g-controls">
     <input class="g-search" type="search" placeholder="Search name…" oninput="filterGuests()" id="g-search">
-    <button class="g-filter active" onclick="setGFilter('all',this)">All (49)</button>
+    <button class="g-filter active" onclick="setGFilter('all',this)">All (54)</button>
     <button class="g-filter" onclick="setGFilter('attending',this)">Attending</button>
     <button class="g-filter" onclick="setGFilter('declining',this)">Declining</button>
   </div>
@@ -303,34 +269,33 @@ html,body{height:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sa
 </div>
 
 <script>
-// countdown
 (function(){
   const d=Math.ceil((new Date('2026-07-04')-new Date())/864e5);
   document.getElementById('countdown').textContent=d>0?d+'d':'Today!';
 })();
 
-// ── BOOKINGS ──
 const BOOKINGS=[
-  {vendor:'Carolina Karam',cat:'Entertainment',status:'deposit',paid:'50%',remaining:'50% before event',notes:'Solo performance · confirmed'},
-  {vendor:'Ahmed Saad',cat:'Singer',status:'deposit',paid:'40%',remaining:'60% before event',notes:'Dedicated live performance during the wedding'},
+  {vendor:'Digital invitation',cat:'Invitation',status:'booked',paid:'Full',remaining:'—',notes:'Sent ✓ · guests registering'},
   {vendor:'DJ Bassem Nagy',cat:'DJ',status:'deposit',paid:'30%',remaining:'70% before event',notes:'Booked ✓'},
-  {vendor:'Zaffa Oriental',cat:'Zaffa',status:'tbd',paid:'—',remaining:'—',notes:'Pending booking'},
-  {vendor:'Zaffa Lebanese',cat:'Zaffa',status:'tbd',paid:'—',remaining:'—',notes:'Pending booking'},
+  {vendor:'Hussein Abdelkader',cat:'Photography',status:'booked',paid:'—',remaining:'—',notes:'Confirmed · payment schedule & delivery dates to be agreed'},
+  {vendor:'Design & Production Team',cat:'Decoration',status:'booked',paid:'—',remaining:'—',notes:'Confirmed · details post 3D concept & samples visit'},
+  {vendor:'Carolina Karam',cat:'Singer',status:'deposit',paid:'50%',remaining:'50% before event',notes:'Solo performance · confirmed'},
+  {vendor:'Ahmed Saad',cat:'Singer',status:'deposit',paid:'40%',remaining:'60% before event',notes:'Dedicated live performance during the wedding'},
+  {vendor:'Zaffa Oriental',cat:'Zaffa',status:'booked',paid:'—',remaining:'—',notes:'Pending booking'},
+  {vendor:'Zaffa Lebanese',cat:'Zaffa',status:'booked',paid:'—',remaining:'—',notes:'Pending booking'},
   {vendor:'Entrance entertainment',cat:'Entertainment',status:'tbd',paid:'—',remaining:'—',notes:'Violins · harp · entertainment — pending'},
   {vendor:'Dining entertainment',cat:'Entertainment',status:'tbd',paid:'—',remaining:'—',notes:'During dinner — pending'},
-  {vendor:'Hussein Abdelkader',cat:'Photography',status:'tbd',paid:'—',remaining:'—',notes:'Payment schedule & delivery dates to be agreed'},
-  {vendor:'Cinema photographer',cat:'Cinema',status:'tbd',paid:'—',remaining:'—',notes:'Exploring options — yet to decide'},
-  {vendor:'CMC Logistics',cat:'Logistics',status:'tbd',paid:'—',remaining:'—',notes:'Team to hire urgently'},
-  {vendor:'Dina — Design Team',cat:'Decoration',status:'tbd',paid:'—',remaining:'—',notes:'Post 3D concept & samples visit'},
-
+  {vendor:'Cinema photographer',cat:'Cinema',status:'booked',paid:'—',remaining:'—',notes:'Exploring options — yet to decide'},
+  {vendor:'CMC Logistics',cat:'Logistics',status:'booked',paid:'—',remaining:'—',notes:'Team to hire urgently'},
 ];
+
 const SL={booked:'Booked ✓',deposit:'Deposit paid',tbd:'Pending / TBD'};
 const SC={booked:'done',deposit:'partial',tbd:'warn'};
 function renderBookings(){
   let bo=0,pa=0,tb=0;
   document.getElementById('book-tbody').innerHTML=BOOKINGS.map(b=>{
     if(b.status==='booked')bo++;else if(b.status==='deposit')pa++;else tb++;
-    return`<tr><td><strong>${b.vendor}</strong></td><td style="color:var(--muted)">${b.cat}</td><td><span class="pill ${SC[b.status]}">${SL[b.status]}</span></td><td class="${b.paid!=='—'&&b.paid!=='TBD'?'money-paid':'money-tbd'}">${b.paid}</td><td class="${b.remaining!=='—'&&b.remaining!=='TBD'?'money-rem':'money-tbd'}">${b.remaining}</td><td style="font-size:12px;color:var(--muted)">${b.notes}</td></tr>`;
+    return`<tr><td><strong>${b.vendor}</strong></td><td style="color:var(--muted)">${b.cat}</td><td><span class="pill ${SC[b.status]}">${SL[b.status]}</span></td><td>${b.paid}</td><td>${b.remaining}</td><td style="font-size:12px;color:var(--muted)">${b.notes}</td></tr>`;
   }).join('');
   document.getElementById('b-total').textContent=BOOKINGS.length;
   document.getElementById('b-booked').textContent=bo;
@@ -338,7 +303,6 @@ function renderBookings(){
   document.getElementById('b-tbd').textContent=tb;
 }
 
-// ── GUESTS ──
 const GUESTS=[
   {id:'GST-IDJ767',name:'Ali Hussein',attendance:'Attending',count:4,ts:'2026-05-06'},
   {id:'GST-I84EEV',name:'Hamis',attendance:'Attending',count:2,ts:'2026-05-06'},
@@ -389,7 +353,13 @@ const GUESTS=[
   {id:'GST-Q37TMD',name:'Mohamed Galal Shoreibah',attendance:'Attending',count:5,ts:'2026-05-10'},
   {id:'GST-T9CPCY',name:'Serene Taher',attendance:'Declining',count:0,ts:'2026-05-11'},
   {id:'GST-FC0C5I',name:'Nina Kabbany',attendance:'Attending',count:3,ts:'2026-05-12'},
+  {id:'GST-FSIBX3',name:'Aladham Aboul Fotouh',attendance:'Attending',count:2,ts:'2026-05-12'},
+  {id:'GST-QPR7YH',name:'Abeer Jarrar',attendance:'Attending',count:1,ts:'2026-05-12'},
+  {id:'GST-L8EEHX',name:'Kristina Matta',attendance:'Attending',count:1,ts:'2026-05-12'},
+  {id:'GST-92QPLB',name:'Ebthal - Mariam - Tahany - Mostafa - Afaf',attendance:'Attending',count:4,ts:'2026-05-12'},
+  {id:'GST-258NAL',name:'Sevag Eknadossian',attendance:'Attending',count:1,ts:'2026-05-12'},
 ];
+
 let gFilter='all';
 function setGFilter(f,btn){gFilter=f;document.querySelectorAll('.g-filter').forEach(b=>b.classList.remove('active'));btn.classList.add('active');renderGuestTable();}
 function filterGuests(){renderGuestTable();}
@@ -402,18 +372,14 @@ function renderGuestTable(){
     return true;
   });
   document.getElementById('g-count').textContent=`Showing ${rows.length} of ${GUESTS.length} entries`;
-  document.getElementById('guest-tbody').innerHTML=rows.map((g,i)=>{
-    const att=g.attendance==='Attending';
-    return`<tr><td style="color:var(--muted)">${i+1}</td><td><strong>${g.name}</strong></td><td><span class="sdot ${att?'dot-att':'dot-dec'}"></span>${g.attendance}</td><td><span class="num-badge ${g.count>=4?'big':''}">${g.count||'—'}</span></td><td style="color:var(--muted);white-space:nowrap">${g.ts}</td><td style="color:var(--muted);font-size:11px">${g.id}</td></tr>`;
-  }).join('');
+  document.getElementById('guest-tbody').innerHTML=rows.map((g,i)=>`<tr><td style="color:var(--muted)">${i+1}</td><td><strong>${g.name}</strong></td><td><span class="sdot ${g.attendance==='Attending'?'dot-att':'dot-dec'}"></span>${g.attendance}</td><td><span class="num-badge ${g.count>=4?'big':''}">${g.count||'—'}</span></td><td style="color:var(--muted);white-space:nowrap">${g.ts}</td><td style="color:var(--muted);font-size:11px">${g.id}</td></tr>`).join('');
 }
 
-// ── CHECKLIST ──
 const CL_DATA=[
   {id:'venue',icon:'🏛️',title:'Venue & date',items:[
     {id:'v1',name:'Confirm venue booking — Nile Plaza Hall, Four Seasons',sub:'July 4th, 2026',tags:[],pre:true},
     {id:'v2',name:'Confirm layout option',sub:'Layout finalized ✓',tags:[],pre:true},
-    {id:'v4',name:'Conduct site visit with decorator',sub:'Required before finalizing entrance design & measurements',tags:[]},
+    {id:'v4',name:'Conduct site visit with decorator',tags:[]},
   ]},
   {id:'concept',icon:'🎨',title:'Wedding concept',items:[
     {id:'c1',name:'Select main concept',sub:'✓ Concept 1: Dreamy Heaven selected',tags:[],pre:true},
@@ -422,17 +388,18 @@ const CL_DATA=[
     {id:'c4',name:'Visit production house',sub:'After 3D concept — quality, finish, flowers & all details',tags:[]},
   ]},
   {id:'meetings',icon:'📅',title:'Upcoming meetings',items:[
-    {id:'m1',name:'Hotel meeting — Dina (Design Team)',sub:'Thu May 14, 3:00 PM · Hall design & decor details',tags:[]},
-    {id:'m2',name:'Meeting — Mr Hussam Family & Hotel Management',sub:'Thu May 14, 5:00 PM · Vendor & entertainment details · final approvals · setup day confirmation',tags:[]},
+    {id:'m1',name:'Meeting — Design & Production Team',sub:'Thu May 14, 3:00 PM · Hall design & decor details',tags:[]},
+    {id:'m2',name:'Meeting — Mr Hussam Family & Hotel Management',sub:'Thu May 14, 5:00 PM · Final approvals · vendor & entertainment details · setup day confirmation',tags:[]},
     {id:'m4',name:'Lights meeting with design team',sub:'To be scheduled after hotel meeting',tags:[]},
   ]},
   {id:'zaffa',icon:'🎶',title:'Zaffa & singers',items:[
-    {id:'z1',name:'Zaffa — confirm vendor & details',sub:'Timing, coordination with DJ',tags:[]},
-    {id:'z2',name:'Ahmed Saad — booked, 40% deposit paid',sub:'Singer · own performance slot',tags:[],pre:true},
-    {id:'z3',name:'Pay remaining 60% — Ahmed Saad',tags:[]},
+    {id:'z1',name:'Zaffa Oriental — book vendor',tags:[]},
+    {id:'z2',name:'Zaffa Lebanese — book vendor',tags:[]},
+    {id:'z3',name:'Ahmed Saad — booked, 40% deposit paid',sub:'Singer · dedicated live performance',tags:[],pre:true},
+    {id:'z4',name:'Pay remaining 60% — Ahmed Saad',tags:[]},
   ]},
   {id:'dj',icon:'🎧',title:'DJ',items:[
-    {id:'d1',name:'DJ Bassem Nagy — booked ✓',sub:'Contract confirmed',tags:[],pre:true},
+    {id:'d1',name:'DJ Bassem Nagy — booked ✓',sub:'30% paid · 70% before event',tags:[],pre:true},
     {id:'d2',name:'Share music preferences & playlist with DJ',tags:[]},
     {id:'d3',name:'Confirm DJ equipment requirements with venue',tags:[]},
   ]},
@@ -443,13 +410,12 @@ const CL_DATA=[
     {id:'e5',name:'Entertainment extras',sub:'To finalize after final concept confirmed',tags:['discussion']},
   ]},
   {id:'entrance-ent',icon:'🎻',title:'Entrance & dining entertainment',items:[
-    {id:'ee1',name:'Entrance entertainment — book vendor',sub:'Violins · harp · ambient entertainment',tags:[]},
+    {id:'ee1',name:'Entrance entertainment — book vendor',sub:'Violins · harp · entertainment',tags:[]},
     {id:'ee2',name:'Dining entertainment — book vendor',sub:'During dinner performance',tags:[]},
     {id:'ee3',name:'Confirm entertainment details — Mr Hussam Family & Hotel Management meeting',sub:'Thu May 14, 5:00 PM',tags:[]},
   ]},
   {id:'decor',icon:'✨',title:'Decor & design',items:[
     {id:'ge1',name:'Guest entrance design confirmed',sub:'Layout done — entrance concept agreed',tags:[],pre:true},
-    {id:'ge3',name:'Confirm entrance entertainment',sub:'Violins · harp · ambient — pending booking',tags:[]},
     {id:'cl1',name:'Ceiling & wall style confirmed',sub:'Awaiting 3D to finalize details',tags:[],pre:true},
     {id:'bs1',name:'Bridal stage design confirmed',sub:'Details to finalize in 3D phase',tags:[],pre:true},
   ]},
@@ -459,13 +425,12 @@ const CL_DATA=[
     {id:'inv3',name:'Assign seating for each guest & update QR accordingly',sub:'To be locked before event',tags:[]},
   ]},
   {id:'photography',icon:'📷',title:'Photography & cinema',items:[
-    {id:'ph1',name:'Hussein Abdelkader — full coverage confirmed',sub:'4 photographers · crane · 3 reels',price:'EGP 110,000',tags:[]},
-    {id:'ph2',name:'Finalize payment schedule — Hussein Abdelkader',sub:'Payment timing + delivery dates',tags:[]},
+    {id:'ph1',name:'Hussein Abdelkader — full coverage confirmed',sub:'4 photographers · crane · 3 reels',tags:[],pre:true},
+    {id:'ph2',name:'Agree payment schedule & delivery dates — Hussein Abdelkader',sub:'Yet to be discussed',tags:[]},
     {id:'ph3',name:'Cinema photography — select who',sub:'Exploring options',tags:['decision']},
     {id:'ph4',name:'Coordinate Hussein & cinema photographer',sub:'Ensure harmony, no conflicts on the day',tags:[]},
-
-    {id:'ph6',name:'Photo booth — unlimited prints',price:'EGP 16,500',tags:['optional']},
-    {id:'ph7',name:'360 camera',price:'EGP 11,000',tags:['optional']},
+    {id:'ph6',name:'Photo booth — unlimited prints',tags:['optional']},
+    {id:'ph7',name:'360 camera',tags:['optional']},
   ]},
   {id:'logistics',icon:'🚚',title:'Logistics & coordination',items:[
     {id:'lg1',name:'Book CMC logistics management',tags:[]},
@@ -530,7 +495,6 @@ function renderChecklist(){
                 ${it.tags.includes('discussion')?`<div class="cl-tags"><span class="tag-p">In discussion</span></div>`:''}
               </div>
             </label>
-            ${it.price?`<div class="cl-price">${it.price}</div>`:''}
           </div>`).join('')}
       </div>`;
     cont.appendChild(el);
@@ -571,9 +535,8 @@ function setFilter(f,btn){
 
 function goTo(page,btn){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-  // sync both navs
   document.querySelectorAll('.tab').forEach(b=>{
-    b.classList.toggle('active', b.getAttribute('onclick')===`goTo('${page}',this)`);
+    b.classList.toggle('active',b.getAttribute('onclick')===`goTo('${page}',this)`);
   });
   document.getElementById('page-'+page).classList.add('active');
 }
